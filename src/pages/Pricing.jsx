@@ -4,10 +4,12 @@ import {
   Zap, Code, Palette, Database, Cloud,
   Smartphone, MessageSquare, Shield, Award
 } from 'lucide-react';
+
 const Pricing = () => {
   const [activeTab, setActiveTab] = useState('web');
   const [selectedPackage, setSelectedPackage] = useState('basic');
   const [isYearly, setIsYearly] = useState(false);
+  
   // Web development pricing
   const webPricing = [
     {
@@ -69,6 +71,7 @@ const Pricing = () => {
       ]
     }
   ];
+  
   // Mobile app development pricing
   const mobilePricing = [
     {
@@ -131,78 +134,81 @@ const Pricing = () => {
       ]
     }
   ];
+  
   // Additional services
   const additionalServices = [
     {
       title: 'Custom Admin Panel',
       description: 'Tailored admin dashboard for managing your content',
       price: '₹2,000+',
-      icon: <Code className="text-yellow-400" size={24} />
+      icon: <Code className="text-indigo-400" size={24} />
     },
     {
       title: 'Authentication System',
       description: 'Secure user authentication and authorization',
       price: '₹1,200 - ₹2,000',
-      icon: <Shield className="text-yellow-400" size={24} />
+      icon: <Shield className="text-indigo-400" size={24} />
     },
     {
       title: 'Payment Gateway',
       description: 'Integration with popular payment providers',
       price: '₹2,000 - ₹3,500',
-      icon: <Smartphone className="text-yellow-400" size={24} />  // Changed from Mobile to Smartphone
+      icon: <Smartphone className="text-indigo-400" size={24} />
     },
     {
       title: 'Real-time Chat',
       description: 'Live messaging and notification system',
       price: '₹3,000 - ₹5,000',
-      icon: <MessageSquare className="text-yellow-400" size={24} />
+      icon: <MessageSquare className="text-indigo-400" size={24} />
     },
     {
       title: 'Analytics Dashboard',
       description: 'Data visualization and insights platform',
       price: '₹800 - ₹1,200',
-      icon: <Database className="text-yellow-400" size={24} />
+      icon: <Database className="text-indigo-400" size={24} />
     },
     {
       title: 'SEO Optimization',
       description: 'Improve your search engine rankings',
       price: '₹500 - ₹1,000',
-      icon: <Star className="text-yellow-400" size={24} />
+      icon: <Star className="text-indigo-400" size={24} />
     }
   ];
+  
   // Deployment services
   const deploymentServices = [
     {
       title: 'Basic Deployment',
       description: 'Simple hosting setup and deployment',
       price: '₹700 - ₹1,200',
-      icon: <Cloud className="text-yellow-400" size={24} />
+      icon: <Cloud className="text-indigo-400" size={24} />
     },
     {
       title: 'CI/CD Pipeline',
       description: 'Automated testing and deployment with GitHub Actions',
       price: '₹1,500',
-      icon: <Zap className="text-yellow-400" size={24} />
+      icon: <Zap className="text-indigo-400" size={24} />
     },
     {
       title: 'Docker Deployment',
       description: 'Containerized deployment with Docker',
       price: '₹2,500',
-      icon: <Cloud className="text-yellow-400" size={24} />
+      icon: <Cloud className="text-indigo-400" size={24} />
     },
     {
       title: 'Domain & SSL Setup',
       description: 'Domain configuration and SSL certificate',
       price: '₹800 - ₹1,200',
-      icon: <Award className="text-yellow-400" size={24} />
+      icon: <Award className="text-indigo-400" size={24} />
     },
     {
       title: 'Cloud Database',
       description: 'PostgreSQL setup on cloud platform',
       price: '₹500 - ₹1,000',
-      icon: <Database className="text-yellow-400" size={24} />
+      icon: <Database className="text-indigo-400" size={24} />
     }
   ];
+  
   // Testimonials
   const testimonials = [
     {
@@ -221,6 +227,7 @@ const Pricing = () => {
       position: "Operations Manager, EduTech Solutions"
     }
   ];
+  
   // FAQ data
   const faqs = [
     {
@@ -240,7 +247,9 @@ const Pricing = () => {
       answer: "I accept bank transfers, UPI, and digital payments. For international clients, I accept payments via PayPal and Wise."
     }
   ];
+  
   const currentPricing = activeTab === 'web' ? webPricing : mobilePricing;
+  
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-gray-900 to-slate-800 text-white">
       {/* Hero Section */}
@@ -250,7 +259,7 @@ const Pricing = () => {
           {[...Array(15)].map((_, i) => (
             <div
               key={i}
-              className="absolute rounded-full bg-yellow-400/10"
+              className="absolute rounded-full bg-indigo-500/10"
               style={{
                 width: `${Math.random() * 100 + 50}px`,
                 height: `${Math.random() * 100 + 50}px`,
@@ -264,12 +273,12 @@ const Pricing = () => {
         </div>
         
         <div className="relative max-w-6xl mx-auto text-center">
-          <div className="inline-block px-4 py-2 bg-yellow-500/20 text-yellow-400 rounded-full text-sm font-medium mb-6">
+          <div className="inline-block px-4 py-2 bg-indigo-500/20 text-indigo-300 rounded-full text-sm font-medium mb-6">
             Pricing Plans
           </div>
           
           <h1 className="text-5xl md:text-7xl font-extrabold mb-6">
-            <span className="bg-gradient-to-r from-yellow-400 via-amber-300 to-yellow-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-indigo-500 bg-clip-text text-transparent">
               Transparent Pricing
             </span>
           </h1>
@@ -285,7 +294,7 @@ const Pricing = () => {
               onClick={() => setActiveTab('web')}
               className={`px-6 py-3 rounded-full text-sm font-medium transition-all ${
                 activeTab === 'web'
-                  ? 'bg-gradient-to-r from-yellow-500 to-amber-500 text-black'
+                  ? 'bg-gradient-to-r from-indigo-500 to-purple-700 text-white'
                   : 'text-gray-400 hover:text-white'
               }`}
             >
@@ -296,7 +305,7 @@ const Pricing = () => {
               onClick={() => setActiveTab('mobile')}
               className={`px-6 py-3 rounded-full text-sm font-medium transition-all ${
                 activeTab === 'mobile'
-                  ? 'bg-gradient-to-r from-yellow-500 to-amber-500 text-black'
+                  ? 'bg-gradient-to-r from-indigo-500 to-purple-700 text-white'
                   : 'text-gray-400 hover:text-white'
               }`}
             >
@@ -314,13 +323,13 @@ const Pricing = () => {
               key={index}
               className={`relative bg-slate-800/50 backdrop-blur-sm rounded-2xl border-2 overflow-hidden transition-all duration-300 hover:scale-105 ${
                 plan.popular 
-                  ? 'border-yellow-500/50 ring-2 ring-yellow-500/20' 
-                  : 'border-slate-700/50 hover:border-yellow-500/30'
+                  ? 'border-indigo-500/50 ring-2 ring-indigo-500/20' 
+                  : 'border-slate-700/50 hover:border-indigo-500/30'
               }`}
             >
               {/* Popular badge */}
               {plan.popular && (
-                <div className="absolute top-0 right-0 bg-gradient-to-r from-yellow-500 to-amber-500 text-black text-xs font-bold px-4 py-1">
+                <div className="absolute top-0 right-0 bg-gradient-to-r from-indigo-500 to-purple-700 text-white text-xs font-bold px-4 py-1">
                   MOST POPULAR
                 </div>
               )}
@@ -341,7 +350,7 @@ const Pricing = () => {
                   </div>
                   <div className="mt-4 flex items-center">
                     <span className="text-lg font-bold text-white">₹{plan.price.yearly.toLocaleString()}</span>
-                    <span className="ml-2 text-yellow-400 font-medium">/year</span>
+                    <span className="ml-2 text-indigo-400 font-medium">/year</span>
                   </div>
                 </div>
                 
@@ -360,13 +369,13 @@ const Pricing = () => {
                   {plan.highlightFeatures.map((feature, idx) => (
                     <div key={idx} className="flex items-center">
                       {feature.icon}
-                      <span className="ml-2 text-yellow-400">{feature.text}</span>
+                      <span className="ml-2 text-indigo-400">{feature.text}</span>
                     </div>
                   ))}
                 </div>
                 
                 {/* CTA Button */}
-                <button className="w-full py-3 bg-gradient-to-r from-yellow-500 to-amber-500 text-black font-bold rounded-xl transition-all hover:scale-105 hover:shadow-lg hover:shadow-yellow-500/30">
+                <button className="w-full py-3 bg-gradient-to-r from-indigo-500 to-purple-700 text-white font-bold rounded-xl transition-all hover:scale-105 hover:shadow-lg hover:shadow-indigo-500/30">
                   Get Started
                 </button>
               </div>
@@ -382,16 +391,16 @@ const Pricing = () => {
             {additionalServices.map((service, index) => (
               <div 
                 key={index}
-                className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50 hover:border-yellow-500/30 transition-all duration-300 hover:scale-[1.02]"
+                className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50 hover:border-indigo-500/30 transition-all duration-300 hover:scale-[1.02]"
               >
                 <div className="flex items-center mb-4">
-                  <div className="p-2 bg-yellow-500/20 rounded-lg mr-4">
+                  <div className="p-2 bg-indigo-500/20 rounded-lg mr-4">
                     {service.icon}
                   </div>
                   <h3 className="text-lg font-bold text-white">{service.title}</h3>
                 </div>
                 <p className="text-gray-400 text-sm mb-3">{service.description}</p>
-                <div className="text-lg font-bold text-yellow-400">{service.price}</div>
+                <div className="text-lg font-bold text-indigo-400">{service.price}</div>
               </div>
             ))}
           </div>
@@ -405,16 +414,16 @@ const Pricing = () => {
             {deploymentServices.map((service, index) => (
               <div 
                 key={index}
-                className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50 hover:border-yellow-500/30 transition-all duration-300 hover:scale-[1.02]"
+                className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50 hover:border-indigo-500/30 transition-all duration-300 hover:scale-[1.02]"
               >
                 <div className="flex items-center mb-4">
-                  <div className="p-2 bg-yellow-500/20 rounded-lg mr-4">
+                  <div className="p-2 bg-indigo-500/20 rounded-lg mr-4">
                     {service.icon}
                   </div>
                   <h3 className="text-lg font-bold text-white">{service.title}</h3>
                 </div>
                 <p className="text-gray-400 text-sm mb-3">{service.description}</p>
-                <div className="text-lg font-bold text-yellow-400">{service.price}</div>
+                <div className="text-lg font-bold text-indigo-400">{service.price}</div>
               </div>
             ))}
           </div>
@@ -428,15 +437,15 @@ const Pricing = () => {
             {testimonials.map((testimonial, index) => (
               <div 
                 key={index}
-                className="bg-gradient-to-r from-yellow-500/20 to-amber-500/20 rounded-2xl p-6 border border-yellow-500/30"
+                className="bg-gradient-to-r from-indigo-500/20 to-purple-500/20 rounded-2xl p-6 border border-indigo-500/30"
               >
                 <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-r from-yellow-500 to-amber-500 flex items-center justify-center text-black font-bold mr-4">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-r from-indigo-500 to-purple-700 flex items-center justify-center text-white font-bold mr-4">
                     {testimonial.author.charAt(0)}
                   </div>
                   <div>
                     <h4 className="font-bold text-white">{testimonial.author}</h4>
-                    <p className="text-yellow-400 text-sm">{testimonial.position}</p>
+                    <p className="text-indigo-400 text-sm">{testimonial.position}</p>
                   </div>
                 </div>
                 <blockquote className="text-gray-300 italic">"{testimonial.quote}"</blockquote>
@@ -453,7 +462,7 @@ const Pricing = () => {
             {faqs.map((faq, index) => (
               <div 
                 key={index}
-                className="bg-slate-700/50 rounded-xl p-4 border border-slate-600/50 hover:border-yellow-500/30 transition-all duration-300"
+                className="bg-slate-700/50 rounded-xl p-4 border border-slate-600/50 hover:border-indigo-500/30 transition-all duration-300"
               >
                 <button
                   className="w-full flex justify-between items-center p-4 text-left focus:outline-none"
@@ -473,7 +482,7 @@ const Pricing = () => {
                   <h4 className="font-bold text-white">{faq.question}</h4>
                   <svg 
                     id={`faq-icon-${index}`}
-                    className="w-5 h-5 text-yellow-400 transition-transform duration-300" 
+                    className="w-5 h-5 text-indigo-400 transition-transform duration-300" 
                     fill="none" 
                     viewBox="0 0 24 24" 
                     stroke="currentColor"
@@ -503,7 +512,7 @@ const Pricing = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="/contact"
-              className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-yellow-500 to-amber-500 text-black font-bold rounded-xl transition-all hover:scale-105 hover:shadow-lg hover:shadow-yellow-500/30"
+              className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-indigo-500 to-purple-700 text-white font-bold rounded-xl transition-all hover:scale-105 hover:shadow-lg hover:shadow-indigo-500/30"
             >
               Get a Quote
               <ArrowRight className="ml-2" size={20} />
@@ -511,7 +520,7 @@ const Pricing = () => {
             
             <a
               href="mailto:saurabh@example.com"
-              className="inline-flex items-center px-8 py-4 bg-slate-800/60 backdrop-blur-sm border border-slate-700/50 rounded-xl transition-all hover:bg-slate-700/60 hover:border-yellow-500/50 hover:scale-105"
+              className="inline-flex items-center px-8 py-4 bg-slate-800/60 backdrop-blur-sm border border-slate-700/50 rounded-xl transition-all hover:bg-slate-700/60 hover:border-indigo-500/50 hover:scale-105"
             >
               Email Me
               <ArrowRight className="ml-2" size={20} />
@@ -520,23 +529,23 @@ const Pricing = () => {
         </div>
         
         {/* Note */}
-        <div className="bg-yellow-500/20 rounded-2xl p-6 border border-yellow-500/30">
+        <div className="bg-indigo-500/20 rounded-2xl p-6 border border-indigo-500/30">
           <h3 className="text-xl font-bold text-white mb-4">Important Notes</h3>
           <ul className="space-y-2 text-gray-300">
             <li className="flex items-start">
-              <Info className="text-yellow-400 mr-3 mt-1 flex-shrink-0" size={16} />
+              <Info className="text-indigo-400 mr-3 mt-1 flex-shrink-0" size={16} />
               <span>Final price depends on project scope and complexity</span>
             </li>
             <li className="flex items-start">
-              <Info className="text-yellow-400 mr-3 mt-1 flex-shrink-0" size={16} />
+              <Info className="text-indigo-400 mr-3 mt-1 flex-shrink-0" size={16} />
               <span>All pricing is negotiable based on bulk/project size</span>
             </li>
             <li className="flex items-start">
-              <Info className="text-yellow-400 mr-3 mt-1 flex-shrink-0" size={16} />
+              <Info className="text-indigo-400 mr-3 mt-1 flex-shrink-0" size={16} />
               <span>Domain & Hosting charges are separate if not provided by the client</span>
             </li>
             <li className="flex items-start">
-              <Info className="text-yellow-400 mr-3 mt-1 flex-shrink-0" size={16} />
+              <Info className="text-indigo-400 mr-3 mt-1 flex-shrink-0" size={16} />
               <span>Proper documentation and demo will be provided post-delivery</span>
             </li>
           </ul>
@@ -553,4 +562,5 @@ const Pricing = () => {
     </div>
   );
 };
+
 export default Pricing;

@@ -12,7 +12,7 @@ const SkillCloud = ({ skills }) => {
           onMouseLeave={() => setActiveSkill(null)}
           className={`px-4 py-2 rounded-full transition-all duration-300 cursor-pointer
             ${activeSkill?.name === skill.name 
-              ? 'bg-yellow-500 text-slate-900 scale-110 shadow-lg shadow-yellow-500/30' 
+              ? 'bg-indigo-500 text-white scale-110 shadow-lg shadow-indigo-500/30' 
               : 'bg-slate-800 text-slate-300 hover:bg-slate-700'}`}
           style={{
             transform: `scale(${1 + (index % 3) * 0.1})`,

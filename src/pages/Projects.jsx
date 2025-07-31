@@ -12,7 +12,7 @@ const Projects = () => {
   const [activeFilter, setActiveFilter] = useState('All');
   const [searchTerm, setSearchTerm] = useState('');
   const [isVisible, setIsVisible] = useState({});
-
+  
   // Convert projectData object to array and extract needed fields
   const projectsArray = Object.values(projectData).map(project => ({
     id: project.id,
@@ -28,10 +28,10 @@ const Projects = () => {
     github: project.github,
     demo: project.demo
   }));
-
+  
   // Tech stack for filtering
   const techStack = ['All', 'React', 'Node.js', 'Python', 'Django', 'Express.js', 'MongoDB', 'PostgreSQL', 'AWS', 'Vue.js'];
-
+  
   // Initialize projects
   useEffect(() => {
     setProjects(projectsArray);
@@ -55,7 +55,7 @@ const Projects = () => {
       document.querySelectorAll('[data-animate]').forEach(el => observer.unobserve(el));
     };
   }, []);
-
+  
   // Handle filtering
   useEffect(() => {
     let result = projects;
@@ -79,21 +79,21 @@ const Projects = () => {
     
     setFilteredProjects(result);
   }, [activeFilter, searchTerm, projects]);
-
+  
   // Handle filter change
   const handleFilter = (tech) => {
     setActiveFilter(tech);
   };
-
+  
   // Handle search change
   const handleSearch = (e) => {
     setSearchTerm(e.target.value);
   };
-
+  
   // Separate featured and regular projects
   const featuredProjects = filteredProjects.filter(project => project.featured);
   const regularProjects = filteredProjects.filter(project => !project.featured);
-
+  
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-gray-900 to-slate-800 text-white">
       {/* Hero Section */}
@@ -103,7 +103,7 @@ const Projects = () => {
           {[...Array(20)].map((_, i) => (
             <div
               key={i}
-              className="absolute rounded-full bg-yellow-400/10"
+              className="absolute rounded-full bg-indigo-500/10"
               style={{
                 width: `${Math.random() * 150 + 50}px`,
                 height: `${Math.random() * 150 + 50}px`,
@@ -117,12 +117,12 @@ const Projects = () => {
         </div>
         
         <div className="relative max-w-6xl mx-auto text-center">
-          <div className="inline-block px-4 py-2 bg-yellow-500/20 text-yellow-400 rounded-full text-sm font-medium mb-6">
+          <div className="inline-block px-4 py-2 bg-indigo-500/20 text-indigo-300 rounded-full text-sm font-medium mb-6">
             My Portfolio
           </div>
           
           <h1 className="text-5xl md:text-7xl font-extrabold mb-6">
-            <span className="bg-gradient-to-r from-yellow-400 via-amber-300 to-yellow-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-indigo-500 bg-clip-text text-transparent">
               Featured Projects
             </span>
           </h1>
@@ -142,7 +142,7 @@ const Projects = () => {
                   placeholder="Search projects..."
                   value={searchTerm}
                   onChange={handleSearch}
-                  className="w-full pl-10 pr-4 py-3 bg-slate-800/60 text-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-500/50"
+                  className="w-full pl-10 pr-4 py-3 bg-slate-800/60 text-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/50"
                 />
               </div>
               
@@ -153,7 +153,7 @@ const Projects = () => {
                     onClick={() => handleFilter(tech)}
                     className={`px-4 py-2 rounded-xl text-sm font-medium transition-all ${
                       activeFilter === tech
-                        ? 'bg-gradient-to-r from-yellow-500 to-amber-500 text-black'
+                        ? 'bg-gradient-to-r from-indigo-500 to-purple-700 text-white'
                         : 'bg-slate-800/60 text-slate-300 hover:bg-slate-700/60'
                     }`}
                   >
@@ -172,7 +172,7 @@ const Projects = () => {
         {featuredProjects.length > 0 && (
           <div className="mb-20">
             <div className="flex items-center mb-10">
-              <Star className="text-yellow-400 mr-3" size={24} />
+              <Star className="text-indigo-400 mr-3" size={24} />
               <h2 className="text-3xl font-bold text-white">Featured Projects</h2>
             </div>
             
@@ -184,7 +184,7 @@ const Projects = () => {
                   className="group"
                   data-animate
                 >
-                  <div className="relative bg-slate-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-slate-700/50 hover:border-yellow-500/50 transition-all duration-500 transform hover:-translate-y-2 hover:shadow-xl hover:shadow-yellow-500/20">
+                  <div className="relative bg-slate-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-slate-700/50 hover:border-indigo-500/50 transition-all duration-500 transform hover:-translate-y-2 hover:shadow-xl hover:shadow-indigo-500/20">
                     {/* Image with overlay */}
                     <div className="relative h-64 overflow-hidden">
                       <img 
@@ -195,19 +195,19 @@ const Projects = () => {
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                       
                       {/* Featured badge */}
-                      <div className="absolute top-4 right-4 px-3 py-1 bg-gradient-to-r from-yellow-500 to-amber-500 text-black text-xs font-bold rounded-full">
+                      <div className="absolute top-4 right-4 px-3 py-1 bg-gradient-to-r from-indigo-500 to-purple-700 text-white text-xs font-bold rounded-full">
                         FEATURED
                       </div>
                     </div>
                     
                     {/* Content */}
                     <div className="p-6">
-                      <div className="flex items-center text-yellow-400 text-sm font-medium mb-2">
+                      <div className="flex items-center text-indigo-400 text-sm font-medium mb-2">
                         <Calendar className="mr-2" size={16} />
                         {project.date}
                       </div>
                       
-                      <h3 className="text-xl font-bold text-white mb-2 group-hover:text-yellow-300 transition-colors duration-300 flex items-center">
+                      <h3 className="text-xl font-bold text-white mb-2 group-hover:text-indigo-300 transition-colors duration-300 flex items-center">
                         {project.title}
                         <ArrowRight className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300" size={18} />
                       </h3>
@@ -223,7 +223,7 @@ const Projects = () => {
                         {project.tags.map((tag, tagIndex) => (
                           <span 
                             key={tagIndex} 
-                            className="px-3 py-1 bg-slate-700/50 text-yellow-400 rounded-full text-xs font-medium"
+                            className="px-3 py-1 bg-slate-700/50 text-indigo-400 rounded-full text-xs font-medium"
                           >
                             {tag}
                           </span>
@@ -257,7 +257,7 @@ const Projects = () => {
         {/* All Projects */}
         <div>
           <div className="flex items-center mb-10">
-            <Briefcase className="text-yellow-400 mr-3" size={24} />
+            <Briefcase className="text-indigo-400 mr-3" size={24} />
             <h2 className="text-3xl font-bold text-white">All Projects</h2>
             <span className="ml-4 px-3 py-1 bg-slate-800/60 text-slate-400 rounded-full text-sm">
               {filteredProjects.length} projects
@@ -279,7 +279,7 @@ const Projects = () => {
                   className="group"
                   data-animate
                 >
-                  <div className="relative bg-slate-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-slate-700/50 hover:border-yellow-500/50 transition-all duration-500 transform hover:-translate-y-2 hover:shadow-xl hover:shadow-yellow-500/20">
+                  <div className="relative bg-slate-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-slate-700/50 hover:border-indigo-500/50 transition-all duration-500 transform hover:-translate-y-2 hover:shadow-xl hover:shadow-indigo-500/20">
                     {/* Image with overlay */}
                     <div className="relative h-48 overflow-hidden">
                       <img 
@@ -292,12 +292,12 @@ const Projects = () => {
                     
                     {/* Content */}
                     <div className="p-6">
-                      <div className="flex items-center text-yellow-400 text-sm font-medium mb-2">
+                      <div className="flex items-center text-indigo-400 text-sm font-medium mb-2">
                         <Calendar className="mr-2" size={16} />
                         {project.date}
                       </div>
                       
-                      <h3 className="text-lg font-bold text-white mb-2 group-hover:text-yellow-300 transition-colors duration-300 flex items-center">
+                      <h3 className="text-lg font-bold text-white mb-2 group-hover:text-indigo-300 transition-colors duration-300 flex items-center">
                         {project.title}
                         <ArrowRight className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300" size={16} />
                       </h3>
@@ -311,13 +311,13 @@ const Projects = () => {
                         {project.tags.slice(0, 2).map((tag, tagIndex) => (
                           <span 
                             key={tagIndex} 
-                            className="px-3 py-1 bg-slate-700/50 text-yellow-400 rounded-full text-xs font-medium"
+                            className="px-3 py-1 bg-slate-700/50 text-indigo-400 rounded-full text-xs font-medium"
                           >
                             {tag}
                           </span>
                         ))}
                         {project.tags.length > 2 && (
-                          <span className="px-3 py-1 bg-slate-700/50 text-yellow-400 rounded-full text-xs font-medium">
+                          <span className="px-3 py-1 bg-slate-700/50 text-indigo-400 rounded-full text-xs font-medium">
                             +{project.tags.length - 2}
                           </span>
                         )}

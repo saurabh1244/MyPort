@@ -3,14 +3,15 @@ import { Link } from 'react-router-dom';
 import { 
   User, Code, Briefcase, Award, Lightbulb, Target, 
   Zap, Shield, Globe, BookOpen, Users, Star, 
-  ChevronRight, ArrowRight, Play, CheckCircle, Calendar
+  ChevronRight, ArrowRight, Play, CheckCircle, Calendar,
+  Server, Palette, Database, Cloud, Clipboard
 } from 'lucide-react';
 
 const About = () => {
   const [activeTab, setActiveTab] = useState('journey');
   const [isVisible, setIsVisible] = useState({});
   const sectionRef = useRef(null);
-
+  
   // Intersection Observer for animations
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -23,86 +24,86 @@ const About = () => {
       },
       { threshold: 0.1, rootMargin: '0px 0px -100px 0px' }
     );
-
+    
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
-
+    
     return () => {
       if (sectionRef.current) {
         observer.unobserve(sectionRef.current);
       }
     };
   }, []);
-
+  
   // Journey data
   const journeyData = [
     {
       year: "2016",
       title: "The Beginning",
       description: "Started my journey in web development with HTML and CSS",
-      icon: <Code className="text-yellow-400" size={24} />
+      icon: <Code className="text-indigo-400" size={24} />
     },
     {
       year: "2018",
       title: "First Breakthrough",
       description: "Built my first full-stack application and fell in love with creating digital solutions",
-      icon: <Lightbulb className="text-yellow-400" size={24} />
+      icon: <Lightbulb className="text-indigo-400" size={24} />
     },
     {
       year: "2020",
       title: "Professional Growth",
       description: "Joined Tech Innovations Inc. as a Full Stack Developer",
-      icon: <Briefcase className="text-yellow-400" size={24} />
+      icon: <Briefcase className="text-indigo-400" size={24} />
     },
     {
       year: "2022",
       title: "Senior Developer",
       description: "Promoted to Senior Developer, leading complex projects and mentoring juniors",
-      icon: <Award className="text-yellow-400" size={24} />
+      icon: <Award className="text-indigo-400" size={24} />
     },
     {
       year: "2024",
       title: "Tech Visionary",
       description: "Exploring cutting-edge technologies and architecting scalable solutions",
-      icon: <Zap className="text-yellow-400" size={24} />
+      icon: <Zap className="text-indigo-400" size={24} />
     }
   ];
-
+  
   // Skills data
   const skillsData = [
-    { name: "Frontend Development", level: 90, icon: <Code className="text-yellow-400" size={20} /> },
-    { name: "Backend Development", level: 85, icon: <Server className="text-yellow-400" size={20} /> },
-    { name: "UI/UX Design", level: 75, icon: <Palette className="text-yellow-400" size={20} /> },
-    { name: "Database Management", level: 80, icon: <Database className="text-yellow-400" size={20} /> },
-    { name: "DevOps & Deployment", level: 70, icon: <Cloud className="text-yellow-400" size={20} /> },
-    { name: "Project Management", level: 85, icon: <Clipboard className="text-yellow-400" size={20} /> }
+    { name: "Frontend Development", level: 90, icon: <Code className="text-indigo-400" size={20} /> },
+    { name: "Backend Development", level: 85, icon: <Server className="text-indigo-400" size={20} /> },
+    { name: "UI/UX Design", level: 75, icon: <Palette className="text-indigo-400" size={20} /> },
+    { name: "Database Management", level: 80, icon: <Database className="text-indigo-400" size={20} /> },
+    { name: "DevOps & Deployment", level: 70, icon: <Cloud className="text-indigo-400" size={20} /> },
+    { name: "Project Management", level: 85, icon: <Clipboard className="text-indigo-400" size={20} /> }
   ];
-
+  
   // Values data
   const valuesData = [
     {
       title: "Innovation",
       description: "Constantly exploring new technologies and approaches to solve problems creatively",
-      icon: <Lightbulb className="text-yellow-400" size={24} />
+      icon: <Lightbulb className="text-indigo-400" size={24} />
     },
     {
       title: "Quality",
       description: "Committed to delivering high-quality, well-tested, and maintainable code",
-      icon: <Shield className="text-yellow-400" size={24} />
+      icon: <Shield className="text-indigo-400" size={24} />
     },
     {
       title: "Collaboration",
       description: "Believing in the power of teamwork and open communication",
-      icon: <Users className="text-yellow-400" size={24} />
+      icon: <Users className="text-indigo-400" size={24} />
     },
     {
       title: "Continuous Learning",
       description: "Always eager to learn new skills and improve existing ones",
-      icon: <BookOpen className="text-yellow-400" size={24} />
+      icon: <BookOpen className="text-indigo-400" size={24} />
     }
   ];
-
+  
   // Testimonials data
   const testimonialsData = [
     {
@@ -121,7 +122,7 @@ const About = () => {
       position: "Lead Developer, Digital Solutions Ltd."
     }
   ];
-
+  
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-gray-900 to-slate-800 text-white">
       {/* Hero Section */}
@@ -131,7 +132,7 @@ const About = () => {
           {[...Array(15)].map((_, i) => (
             <div
               key={i}
-              className="absolute rounded-full bg-yellow-400/10"
+              className="absolute rounded-full bg-indigo-500/10"
               style={{
                 width: `${Math.random() * 100 + 20}px`,
                 height: `${Math.random() * 100 + 20}px`,
@@ -145,12 +146,12 @@ const About = () => {
         </div>
         
         <div className="relative max-w-6xl mx-auto text-center">
-          <div className="inline-block px-4 py-2 bg-yellow-500/20 text-yellow-400 rounded-full text-sm font-medium mb-6 animate-pulse-slow">
+          <div className="inline-block px-4 py-2 bg-indigo-500/20 text-indigo-300 rounded-full text-sm font-medium mb-6 animate-pulse-slow">
             Get to Know Me
           </div>
           
           <h1 className="text-5xl md:text-7xl font-extrabold mb-6">
-            <span className="bg-gradient-to-r from-yellow-400 via-amber-300 to-yellow-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-indigo-500 bg-clip-text text-transparent">
               About Saurabh Chandra
             </span>
           </h1>
@@ -162,14 +163,14 @@ const About = () => {
           <div className="flex justify-center space-x-4">
             <Link 
               to="/projects" 
-              className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-yellow-500 to-amber-500 text-black font-bold rounded-full transition-all hover:scale-105 hover:shadow-lg hover:shadow-yellow-500/30"
+              className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-indigo-500 to-purple-700 text-white font-bold rounded-full transition-all hover:scale-105 hover:shadow-lg hover:shadow-indigo-500/30"
             >
               View Projects <ArrowRight className="ml-2" size={18} />
             </Link>
             
             <Link 
               to="/contact" 
-              className="inline-flex items-center px-6 py-3 bg-slate-800/60 backdrop-blur-sm border border-slate-700 rounded-full transition-all hover:bg-slate-700/60 hover:border-yellow-500/50 hover:scale-105"
+              className="inline-flex items-center px-6 py-3 bg-slate-800/60 backdrop-blur-sm border border-slate-700 rounded-full transition-all hover:bg-slate-700/60 hover:border-indigo-500/50 hover:scale-105"
             >
               Get In Touch <ArrowRight className="ml-2" size={18} />
             </Link>
@@ -184,19 +185,19 @@ const About = () => {
           {/* Left Column - Image and Intro */}
           <div className="space-y-8">
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-yellow-500 to-amber-500 rounded-2xl rotate-6 opacity-80 blur-sm"></div>
-              <div className="absolute inset-0 bg-gradient-to-r from-amber-500 to-yellow-500 rounded-2xl -rotate-6 opacity-60 blur-sm"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-700 rounded-2xl rotate-6 opacity-80 blur-sm"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-700 rounded-2xl -rotate-6 opacity-60 blur-sm"></div>
               <img 
                 src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=600&fit=crop&crop=face" 
                 alt="Saurabh Chandra" 
-                className="relative rounded-2xl border-2 border-yellow-400/30 shadow-2xl shadow-yellow-500/20 w-full h-auto"
+                className="relative rounded-2xl border-2 border-indigo-400/30 shadow-2xl shadow-indigo-500/20 w-full h-auto"
               />
             </div>
             
-            <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 border border-slate-700/50 hover:border-yellow-500/30 transition-all duration-500">
+            <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 border border-slate-700/50 hover:border-indigo-500/30 transition-all duration-500">
               <div className="flex items-center mb-6">
-                <div className="p-2 bg-yellow-500/20 rounded-lg mr-4">
-                  <User className="text-yellow-400" size={24} />
+                <div className="p-2 bg-indigo-500/20 rounded-lg mr-4">
+                  <User className="text-indigo-400" size={24} />
                 </div>
                 <h2 className="text-2xl font-bold text-white">Who I Am</h2>
               </div>
@@ -223,19 +224,19 @@ const About = () => {
               ].map((stat, index) => (
                 <div 
                   key={index}
-                  className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50 hover:border-yellow-500/30 transition-all duration-500 hover:scale-[1.03]"
+                  className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50 hover:border-indigo-500/30 transition-all duration-500 hover:scale-[1.03]"
                 >
-                  <div className="text-4xl font-bold text-yellow-400 mb-2">{stat.number}</div>
+                  <div className="text-4xl font-bold text-indigo-400 mb-2">{stat.number}</div>
                   <div className="text-gray-400">{stat.label}</div>
                 </div>
               ))}
             </div>
             
             {/* Skills */}
-            <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 border border-slate-700/50 hover:border-yellow-500/30 transition-all duration-500">
+            <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 border border-slate-700/50 hover:border-indigo-500/30 transition-all duration-500">
               <div className="flex items-center mb-6">
-                <div className="p-2 bg-yellow-500/20 rounded-lg mr-4">
-                  <Code className="text-yellow-400" size={24} />
+                <div className="p-2 bg-indigo-500/20 rounded-lg mr-4">
+                  <Code className="text-indigo-400" size={24} />
                 </div>
                 <h2 className="text-2xl font-bold text-white">Core Skills</h2>
               </div>
@@ -248,11 +249,11 @@ const About = () => {
                         {skill.icon}
                         <span className="ml-2 text-gray-300">{skill.name}</span>
                       </div>
-                      <span className="text-yellow-400 font-medium">{skill.level}%</span>
+                      <span className="text-indigo-400 font-medium">{skill.level}%</span>
                     </div>
                     <div className="h-2 bg-slate-700 rounded-full overflow-hidden">
                       <div 
-                        className="h-full bg-gradient-to-r from-yellow-400 to-amber-500 rounded-full"
+                        className="h-full bg-gradient-to-r from-indigo-400 to-purple-500 rounded-full"
                         style={{ width: `${skill.level}%` }}
                       ></div>
                     </div>
@@ -277,7 +278,7 @@ const About = () => {
                   onClick={() => setActiveTab(tab.id)}
                   className={`px-6 py-3 rounded-full text-sm font-medium transition-all ${
                     activeTab === tab.id
-                      ? 'bg-gradient-to-r from-yellow-500 to-amber-500 text-black'
+                      ? 'bg-gradient-to-r from-indigo-500 to-purple-700 text-white'
                       : 'text-gray-400 hover:text-white'
                   }`}
                 >
@@ -296,18 +297,18 @@ const About = () => {
                 
                 <div className="relative">
                   {/* Timeline line */}
-                  <div className="absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-yellow-500 to-amber-500"></div>
+                  <div className="absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-indigo-500 to-purple-500"></div>
                   
                   <div className="space-y-12">
                     {journeyData.map((item, index) => (
                       <div key={index} className="relative pl-16">
                         {/* Timeline dot */}
-                        <div className="absolute left-0 w-16 h-16 rounded-full bg-gradient-to-r from-yellow-500 to-amber-500 flex items-center justify-center border-4 border-slate-900">
-                          <span className="text-black font-bold">{item.year}</span>
+                        <div className="absolute left-0 w-16 h-16 rounded-full bg-gradient-to-r from-indigo-500 to-purple-700 flex items-center justify-center border-4 border-slate-900">
+                          <span className="text-white font-bold">{item.year}</span>
                         </div>
                         
                         {/* Content */}
-                        <div className="bg-slate-700/50 rounded-2xl p-6 border border-slate-600/50 hover:border-yellow-500/30 transition-all duration-300">
+                        <div className="bg-slate-700/50 rounded-2xl p-6 border border-slate-600/50 hover:border-indigo-500/30 transition-all duration-300">
                           <div className="flex items-center mb-3">
                             {item.icon}
                             <h4 className="text-xl font-bold text-white ml-3">{item.title}</h4>
@@ -330,7 +331,7 @@ const About = () => {
                   {valuesData.map((value, index) => (
                     <div 
                       key={index}
-                      className="bg-slate-700/50 rounded-2xl p-6 border border-slate-600/50 hover:border-yellow-500/30 transition-all duration-300"
+                      className="bg-slate-700/50 rounded-2xl p-6 border border-slate-600/50 hover:border-indigo-500/30 transition-all duration-300"
                     >
                       <div className="flex items-center mb-4">
                         {value.icon}
@@ -341,7 +342,7 @@ const About = () => {
                   ))}
                 </div>
                 
-                <div className="bg-gradient-to-r from-yellow-500/20 to-amber-500/20 rounded-2xl p-8 border border-yellow-500/30 mt-8">
+                <div className="bg-gradient-to-r from-indigo-500/20 to-purple-500/20 rounded-2xl p-8 border border-indigo-500/30 mt-8">
                   <h4 className="text-xl font-bold text-white mb-4">My Philosophy</h4>
                   <p className="text-gray-300 mb-4">
                     I believe that great software is built on a foundation of clean code, thoughtful design, and a deep understanding of user needs. Every line of code should serve a purpose, and every feature should enhance the user experience.
@@ -362,11 +363,11 @@ const About = () => {
                   {testimonialsData.map((testimonial, index) => (
                     <div 
                       key={index}
-                      className="bg-slate-700/50 rounded-2xl p-6 border border-slate-600/50 hover:border-yellow-500/30 transition-all duration-300"
+                      className="bg-slate-700/50 rounded-2xl p-6 border border-slate-600/50 hover:border-indigo-500/30 transition-all duration-300"
                     >
                       <div className="flex items-center mb-4">
                         {[...Array(5)].map((_, i) => (
-                          <Star key={i} className="text-yellow-400 fill-current" size={18} />
+                          <Star key={i} className="text-indigo-400 fill-current" size={18} />
                         ))}
                       </div>
                       
@@ -375,7 +376,7 @@ const About = () => {
                       </blockquote>
                       
                       <div className="flex items-center">
-                        <div className="w-12 h-12 rounded-full bg-gradient-to-r from-yellow-500 to-amber-500 flex items-center justify-center text-black font-bold mr-4">
+                        <div className="w-12 h-12 rounded-full bg-gradient-to-r from-indigo-500 to-purple-700 flex items-center justify-center text-white font-bold mr-4">
                           {testimonial.author.charAt(0)}
                         </div>
                         <div>
@@ -392,7 +393,7 @@ const About = () => {
         </div>
         
         {/* CTA Section */}
-        <div className="bg-gradient-to-r from-yellow-500/20 to-amber-500/20 rounded-2xl p-12 text-center border border-yellow-500/30">
+        <div className="bg-gradient-to-r from-indigo-500/20 to-purple-500/20 rounded-2xl p-12 text-center border border-indigo-500/30">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Let's Work Together</h2>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-8">
             I'm always interested in hearing about new projects and opportunities. Whether you have a question or just want to say hi, feel free to reach out!
@@ -400,7 +401,7 @@ const About = () => {
           
           <Link 
             to="/contact" 
-            className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-yellow-500 to-amber-500 text-black font-bold rounded-full transition-all hover:scale-105 hover:shadow-lg hover:shadow-yellow-500/30"
+            className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-indigo-500 to-purple-700 text-white font-bold rounded-full transition-all hover:scale-105 hover:shadow-lg hover:shadow-indigo-500/30"
           >
             Get In Touch <ArrowRight className="ml-2" size={20} />
           </Link>
@@ -424,8 +425,5 @@ const About = () => {
     </div>
   );
 };
-
-// Missing icons import
-import { Server, Palette, Database, Cloud, Clipboard } from 'lucide-react';
 
 export default About;
