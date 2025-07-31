@@ -4,8 +4,9 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import About from './pages/About';
 import Projects from './pages/Projects';
-import Contact from './components/Contact';
-import Skills from './components/MySkills';
+import ProjectDetailPage from './pages/ProjectDetialPage';
+import ContactPage from './pages/ContactPage';
+import Pricing from './pages/Pricing';
 
 function App() {
   return (
@@ -18,10 +19,14 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/projects" element={<Projects />} />
+           <Route path="/projects/:slug" element={<ProjectDetailPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/pricing" element={<Pricing />} />
+
+
           </Routes>
         </main>
 
-        <Contact />
         <Footer />
       </div>
     </Router>
