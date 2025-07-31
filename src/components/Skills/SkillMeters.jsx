@@ -29,13 +29,13 @@ const SkillMeters = ({ skills }) => {
         <div key={skill.name} className="space-y-2">
           <div className="flex justify-between">
             <span className="font-medium">{skill.name}</span>
-            <span>{skill.level}%</span>
+            <span className="text-indigo-400">{skill.level}%</span>
           </div>
           <div className="h-3 bg-slate-700 rounded-full overflow-hidden">
             <div 
               ref={el => meterRefs.current[index] = el}
               data-level={`${skill.level}%`}
-              className="h-full bg-gradient-to-r from-yellow-400 to-amber-500 rounded-full w-0 transition-all duration-1000 ease-out"
+              className="h-full bg-gradient-to-r from-indigo-400 to-purple-500 rounded-full w-0 transition-all duration-1000 ease-out"
             />
           </div>
         </div>

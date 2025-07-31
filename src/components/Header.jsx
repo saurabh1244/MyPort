@@ -1,4 +1,3 @@
-// Header.jsx
 import { Link, useLocation } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
 import { Mail, Github, Linkedin, Twitter, Menu, X } from 'lucide-react';
@@ -8,7 +7,6 @@ const Header = () => {
   const [open, setOpen] = useState(false);
   const headerRef = useRef(null);
   const location = useLocation();
-
   // --- New state for header visibility based on scroll direction ---
   const [isVisibleHeader, setIsVisibleHeader] = useState(true);
   const lastScrollY = useRef(0); // To store the previous scroll position
@@ -16,10 +14,8 @@ const Header = () => {
   useEffect(() => {
     const onScroll = () => {
       const currentScrollY = window.scrollY;
-
       // Handle background change on scroll (your existing logic)
       setScrolled(currentScrollY > 30);
-
       // --- Logic for hiding/showing header ---
       // If scrolling down AND past a certain threshold (e.g., 100px from top)
       if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
@@ -31,10 +27,8 @@ const Header = () => {
         // Always show header at the very top of the page (e.g., within 30px)
         setIsVisibleHeader(true);
       }
-
       lastScrollY.current = currentScrollY; // Update last scroll position
     };
-
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
   }, []); // Empty dependency array means this effect runs once on mount
@@ -45,8 +39,6 @@ const Header = () => {
     { to: '/projects', label: 'Projects' },
     { to: '/contact', label: 'Contact' },
     { to: '/pricing', label: 'Pricing' }
-
-
   ];
 
   const socials = [
@@ -63,27 +55,25 @@ const Header = () => {
         ${isVisibleHeader ? 'translate-y-0' : '-translate-y-full'} {/* Controls show/hide */}
         ${scrolled
           ? 'bg-slate-900/80 backdrop-blur-xl shadow-xl'
-          : 'bg-gradient-to-r from-yellow-500 via-yellow-600 to-yellow-700'
+          : 'bg-gradient-to-r from-indigo-500 to-purple-700'
         }`}
     >
-      {/* subtle yellow spotlight */}
+      {/* subtle indigo/purple spotlight */}
       <div
         className="absolute inset-0 opacity-20 pointer-events-none"
         style={{
-          background: `radial-gradient(700px circle at 50% 50%, #f59e0b33, transparent 60%)`
+          background: `radial-gradient(700px circle at 50% 50%, #818cf833, transparent 60%)`
         }}
       />
-
       <div className="container mx-auto px-6 flex items-center justify-between h-20">
         {/* Logo */}
         <Link
           to="/"
-          className="font-extrabold text-2xl md:text-3xl text-black tracking-wider
-                      hover:text-yellow-200 transition-colors"
+          className="font-extrabold text-2xl md:text-3xl text-white tracking-wider
+                      hover:text-indigo-200 transition-colors"
         >
           Xiorabh
         </Link>
-
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center space-x-6">
           {navLinks.map(({ to, label }) => (
@@ -93,31 +83,29 @@ const Header = () => {
               className={`relative px-3 py-2 text-sm font-semibold rounded-md transition-all
                 ${
                   location.pathname === to
-                    ? 'text-black'
-                    : 'text-yellow-950 hover:text-yellow-800'
+                    ? 'text-white'
+                    : 'text-indigo-100 hover:text-white'
                 }`}
             >
               {label}
               <span
-                className={`absolute -bottom-0.5 left-1/2 -translate-x-1/2 h-0.5 bg-yellow-900
+                className={`absolute -bottom-0.5 left-1/2 -translate-x-1/2 h-0.5 bg-indigo-200
                   rounded-full transition-all duration-300
                   ${location.pathname === to ? 'w-3/4' : 'w-0 group-hover:w-3/4'}`}
               />
             </Link>
           ))}
-
           {/* Hire Me Button */}
           <a
             href="#contact"
-            className="ml-4 px-4 py-2 bg-gradient-to-r from-yellow-500 to-amber-500
-                        text-black font-semibold rounded-lg shadow-md
-                        hover:from-yellow-600 hover:to-amber-600 transition-all duration-300
+            className="ml-4 px-4 py-2 bg-gradient-to-r from-indigo-400 to-purple-500
+                        text-white font-semibold rounded-lg shadow-md
+                        hover:from-indigo-500 hover:to-purple-600 transition-all duration-300
                         hover:scale-105"
           >
             Hire Me
           </a>
         </nav>
-
         {/* Social icons desktop */}
         <div className="hidden md:flex items-center space-x-3">
           {socials.map(({ Icon, href, label }) => (
@@ -127,26 +115,24 @@ const Header = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={label}
-              className="text-yellow-900 hover:text-yellow-700 transition-colors"
+              className="text-indigo-100 hover:text-white transition-colors"
             >
               <Icon size={20} />
             </a>
           ))}
         </div>
-
         {/* Mobile Hamburger */}
         <button
           onClick={() => setOpen(!open)}
-          className="md:hidden text-yellow-900 hover:text-yellow-700 transition"
+          className="md:hidden text-indigo-100 hover:text-white transition"
           aria-label="Toggle menu"
         >
           {open ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
-
       {/* Mobile Drawer */}
       {open && (
-        <div className="md:hidden px-6 pb-6 space-y-4 animate-fade-down bg-yellow-500">
+        <div className="md:hidden px-6 pb-6 space-y-4 animate-fade-down bg-gradient-to-r from-indigo-600 to-purple-800">
           <nav className="flex flex-col space-y-3">
             {navLinks.map(({ to, label }) => (
               <Link
@@ -156,15 +142,14 @@ const Header = () => {
                 className={`px-4 py-2 rounded-md font-semibold
                   ${
                     location.pathname === to
-                      ? 'text-black bg-yellow-400'
-                      : 'text-yellow-950 hover:text-yellow-800 hover:bg-yellow-400/40'
+                      ? 'text-white bg-indigo-500'
+                      : 'text-indigo-100 hover:text-white hover:bg-indigo-500/40'
                   }`}
               >
                 {label}
               </Link>
             ))}
           </nav>
-
           <div className="flex justify-center space-x-4 pt-2">
             {socials.map(({ Icon, href, label }) => (
               <a
@@ -173,24 +158,22 @@ const Header = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={label}
-                className="text-yellow-900 hover:text-yellow-700 transition-colors"
+                className="text-indigo-100 hover:text-white transition-colors"
               >
                 <Icon size={22} />
               </a>
             ))}
           </div>
-
           <a
             href="#contact"
-            className="block w-full mt-4 px-4 py-2 bg-gradient-to-r from-yellow-500 to-amber-500
-                        text-black font-semibold rounded-lg shadow-md text-center
-                        hover:from-yellow-600 hover:to-amber-600 transition-all duration-300"
+            className="block w-full mt-4 px-4 py-2 bg-gradient-to-r from-indigo-400 to-purple-500
+                        text-white font-semibold rounded-lg shadow-md text-center
+                        hover:from-indigo-500 hover:to-purple-600 transition-all duration-300"
           >
             Hire Me
           </a>
         </div>
       )}
-
       <style jsx>{`
         @keyframes fade-down {
           from { opacity: 0; transform: translateY(-10px); }

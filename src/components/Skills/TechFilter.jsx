@@ -16,7 +16,7 @@ const TechFilter = ({ technologies, onFilter }) => {
           onClick={() => handleFilter(tech)}
           className={`px-4 py-2 rounded-full transition-all duration-300
             ${activeFilter === tech 
-              ? 'bg-yellow-500 text-slate-900 font-medium shadow-lg shadow-yellow-500/30' 
+              ? 'bg-indigo-500 text-white font-medium shadow-lg shadow-indigo-500/30' 
               : 'bg-slate-800 text-slate-300 hover:bg-slate-700'}`}
         >
           {tech}

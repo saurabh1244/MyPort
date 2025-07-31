@@ -16,29 +16,29 @@ const ContactPage = () => {
   
   const [formStatus, setFormStatus] = useState('idle'); // idle, loading, success, error
   const [errors, setErrors] = useState({});
-
+  
   // Contact information
   const contactInfo = [
     {
-      icon: <Mail className="text-yellow-400" size={24} />,
+      icon: <Mail className="text-indigo-400" size={24} />,
       title: "Email",
       value: "saurabh@example.com",
       description: "I'll respond within 24 hours"
     },
     {
-      icon: <Phone className="text-yellow-400" size={24} />,
+      icon: <Phone className="text-indigo-400" size={24} />,
       title: "Phone",
       value: "+91 98765 43210",
       description: "Mon-Fri 9AM-6PM IST"
     },
     {
-      icon: <MapPin className="text-yellow-400" size={24} />,
+      icon: <MapPin className="text-indigo-400" size={24} />,
       title: "Location",
       value: "Mumbai, India",
       description: "Available for remote work worldwide"
     }
   ];
-
+  
   // Social links
   const socialLinks = [
     { icon: <Github size={20} />, url: '#', label: 'GitHub' },
@@ -46,26 +46,26 @@ const ContactPage = () => {
     { icon: <Twitter size={20} />, url: '#', label: 'Twitter' },
     { icon: <ExternalLink size={20} />, url: '#', label: 'Website' }
   ];
-
+  
   // Services
   const services = [
     {
-      icon: <Code className="text-yellow-400" size={24} />,
+      icon: <Code className="text-indigo-400" size={24} />,
       title: "Web Development",
       description: "Custom web applications built with modern technologies"
     },
     {
-      icon: <Briefcase className="text-yellow-400" size={24} />,
+      icon: <Briefcase className="text-indigo-400" size={24} />,
       title: "Consulting",
       description: "Technical guidance and architecture planning"
     },
     {
-      icon: <Zap className="text-yellow-400" size={24} />,
+      icon: <Zap className="text-indigo-400" size={24} />,
       title: "Performance Optimization",
       description: "Speed up your existing applications"
     }
   ];
-
+  
   // FAQ data
   const faqs = [
     {
@@ -85,7 +85,7 @@ const ContactPage = () => {
       answer: "Yes, I offer various support packages depending on your needs, from basic bug fixes to full maintenance and feature updates."
     }
   ];
-
+  
   const validateForm = () => {
     const newErrors = {};
     
@@ -112,7 +112,7 @@ const ContactPage = () => {
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
-
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     
@@ -135,7 +135,7 @@ const ContactPage = () => {
       }
     }, 2000);
   };
-
+  
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({
@@ -151,7 +151,7 @@ const ContactPage = () => {
       }));
     }
   };
-
+  
   return (
     <div className="bg-gradient-to-br from-slate-900 via-gray-900 to-slate-800 text-white">
       {/* Hero Section */}
@@ -161,7 +161,7 @@ const ContactPage = () => {
           {[...Array(15)].map((_, i) => (
             <div
               key={i}
-              className="absolute rounded-full bg-yellow-400/10"
+              className="absolute rounded-full bg-indigo-500/10"
               style={{
                 width: `${Math.random() * 100 + 50}px`,
                 height: `${Math.random() * 100 + 50}px`,
@@ -175,12 +175,12 @@ const ContactPage = () => {
         </div>
         
         <div className="relative max-w-6xl mx-auto text-center">
-          <div className="inline-block px-4 py-2 bg-yellow-500/20 text-yellow-400 rounded-full text-sm font-medium mb-6">
+          <div className="inline-block px-4 py-2 bg-indigo-500/20 text-indigo-300 rounded-full text-sm font-medium mb-6">
             Get In Touch
           </div>
           
           <h1 className="text-5xl md:text-7xl font-extrabold mb-6">
-            <span className="bg-gradient-to-r from-yellow-400 via-amber-300 to-yellow-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-indigo-500 bg-clip-text text-transparent">
               Let's Work Together
             </span>
           </h1>
@@ -202,15 +202,15 @@ const ContactPage = () => {
               {contactInfo.map((info, index) => (
                 <div 
                   key={index}
-                  className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50 hover:border-yellow-500/30 transition-all duration-300 hover:scale-[1.02]"
+                  className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50 hover:border-indigo-500/30 transition-all duration-300 hover:scale-[1.02]"
                 >
                   <div className="flex items-start">
-                    <div className="p-2 bg-yellow-500/20 rounded-lg mr-4">
+                    <div className="p-2 bg-indigo-500/20 rounded-lg mr-4">
                       {info.icon}
                     </div>
                     <div>
                       <h3 className="text-lg font-bold text-white mb-1">{info.title}</h3>
-                      <p className="text-yellow-400 font-medium mb-1">{info.value}</p>
+                      <p className="text-indigo-400 font-medium mb-1">{info.value}</p>
                       <p className="text-gray-400 text-sm">{info.description}</p>
                     </div>
                   </div>
@@ -226,11 +226,11 @@ const ContactPage = () => {
                   <a
                     key={index}
                     href={social.url}
-                    className="flex items-center p-3 bg-slate-700/50 rounded-xl hover:bg-yellow-500/20 transition-all duration-300 hover:scale-105 group"
+                    className="flex items-center p-3 bg-slate-700/50 rounded-xl hover:bg-indigo-500/20 transition-all duration-300 hover:scale-105 group"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <div className="text-yellow-400 group-hover:text-yellow-300 transition-colors">
+                    <div className="text-indigo-400 group-hover:text-indigo-300 transition-colors">
                       {social.icon}
                     </div>
                     <span className="ml-3 text-gray-300 group-hover:text-white transition-colors">
@@ -247,7 +247,7 @@ const ContactPage = () => {
               <div className="space-y-4">
                 {services.map((service, index) => (
                   <div key={index} className="flex items-start">
-                    <div className="mt-1 mr-3 text-yellow-400">
+                    <div className="mt-1 mr-3 text-indigo-400">
                       {service.icon}
                     </div>
                     <div>
@@ -296,7 +296,7 @@ const ContactPage = () => {
                       onChange={handleChange}
                       className={`w-full px-4 py-3 bg-slate-800/60 border ${
                         errors.name ? 'border-red-500/50' : 'border-slate-700/50'
-                      } rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-500/50 text-white transition-all`}
+                      } rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/50 text-white transition-all`}
                       placeholder="Your name"
                     />
                     {errors.name && (
@@ -315,7 +315,7 @@ const ContactPage = () => {
                       onChange={handleChange}
                       className={`w-full px-4 py-3 bg-slate-800/60 border ${
                         errors.email ? 'border-red-500/50' : 'border-slate-700/50'
-                      } rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-500/50 text-white transition-all`}
+                      } rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/50 text-white transition-all`}
                       placeholder="your@email.com"
                     />
                     {errors.email && (
@@ -335,7 +335,7 @@ const ContactPage = () => {
                     onChange={handleChange}
                     className={`w-full px-4 py-3 bg-slate-800/60 border ${
                       errors.subject ? 'border-red-500/50' : 'border-slate-700/50'
-                    } rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-500/50 text-white transition-all`}
+                    } rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/50 text-white transition-all`}
                     placeholder="What's this about?"
                   />
                   {errors.subject && (
@@ -354,7 +354,7 @@ const ContactPage = () => {
                     rows={5}
                     className={`w-full px-4 py-3 bg-slate-800/60 border ${
                       errors.message ? 'border-red-500/50' : 'border-slate-700/50'
-                    } rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-500/50 text-white resize-none transition-all`}
+                    } rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/50 text-white resize-none transition-all`}
                     placeholder="Tell me about your project..."
                   />
                   {errors.message && (
@@ -365,11 +365,11 @@ const ContactPage = () => {
                 <button
                   type="submit"
                   disabled={formStatus === 'loading'}
-                  className="w-full py-4 bg-gradient-to-r from-yellow-500 to-amber-500 text-black font-bold rounded-xl transition-all hover:scale-105 hover:shadow-lg hover:shadow-yellow-500/30 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+                  className="w-full py-4 bg-gradient-to-r from-indigo-500 to-purple-700 text-white font-bold rounded-xl transition-all hover:scale-105 hover:shadow-lg hover:shadow-indigo-500/30 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
                 >
                   {formStatus === 'loading' ? (
                     <>
-                      <div className="w-5 h-5 border-2 border-black border-t-transparent rounded-full animate-spin mr-3"></div>
+                      <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-3"></div>
                       Sending...
                     </>
                   ) : (
@@ -383,54 +383,52 @@ const ContactPage = () => {
             </div>
             
             {/* FAQ Section */}
-<div className="mt-12 bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 border border-slate-700/50">
-  <h3 className="text-2xl font-bold text-white mb-6">Frequently Asked Questions</h3>
-  
-  <div className="space-y-4">
-    {faqs.map((faq, index) => (
-      <div 
-        key={index}
-        className="bg-slate-700/50 rounded-xl border border-slate-600/50 hover:border-yellow-500/30 transition-all duration-300 overflow-hidden"
-      >
-        <button
-          className="w-full flex justify-between items-center p-4 text-left focus:outline-none"
-          onClick={() => {
-            const element = document.getElementById(`faq-answer-${index}`);
-            const icon = document.getElementById(`faq-icon-${index}`);
-            
-            if (element.style.display === 'none' || element.style.display === '') {
-              element.style.display = 'block';
-              icon.style.transform = 'rotate(180deg)';
-            } else {
-              element.style.display = 'none';
-              icon.style.transform = 'rotate(0deg)';
-            }
-          }}
-        >
-          <h4 className="font-bold text-white">{faq.question}</h4>
-          <svg 
-            id={`faq-icon-${index}`}
-            className="w-5 h-5 text-yellow-400 transition-transform duration-300" 
-            fill="none" 
-            viewBox="0 0 24 24" 
-            stroke="currentColor"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-          </svg>
-        </button>
-        
-        <div 
-          id={`faq-answer-${index}`}
-          className="px-4 pb-4 text-gray-300 text-sm hidden"
-        >
-          {faq.answer}
-        </div>
-      </div>
-    ))}
-  </div>
-</div>
-
-
+            <div className="mt-12 bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 border border-slate-700/50">
+              <h3 className="text-2xl font-bold text-white mb-6">Frequently Asked Questions</h3>
+              
+              <div className="space-y-4">
+                {faqs.map((faq, index) => (
+                  <div 
+                    key={index}
+                    className="bg-slate-700/50 rounded-xl border border-slate-600/50 hover:border-indigo-500/30 transition-all duration-300 overflow-hidden"
+                  >
+                    <button
+                      className="w-full flex justify-between items-center p-4 text-left focus:outline-none"
+                      onClick={() => {
+                        const element = document.getElementById(`faq-answer-${index}`);
+                        const icon = document.getElementById(`faq-icon-${index}`);
+                        
+                        if (element.style.display === 'none' || element.style.display === '') {
+                          element.style.display = 'block';
+                          icon.style.transform = 'rotate(180deg)';
+                        } else {
+                          element.style.display = 'none';
+                          icon.style.transform = 'rotate(0deg)';
+                        }
+                      }}
+                    >
+                      <h4 className="font-bold text-white">{faq.question}</h4>
+                      <svg 
+                        id={`faq-icon-${index}`}
+                        className="w-5 h-5 text-indigo-400 transition-transform duration-300" 
+                        fill="none" 
+                        viewBox="0 0 24 24" 
+                        stroke="currentColor"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </button>
+                    
+                    <div 
+                      id={`faq-answer-${index}`}
+                      className="px-4 pb-4 text-gray-300 text-sm hidden"
+                    >
+                      {faq.answer}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -438,7 +436,7 @@ const ContactPage = () => {
       {/* CTA Section */}
       <section className="py-20 px-6">
         <div className="max-w-6xl mx-auto text-center">
-          <div className="bg-gradient-to-r from-yellow-500/20 to-amber-500/20 rounded-2xl p-12 border border-yellow-500/30">
+          <div className="bg-gradient-to-r from-indigo-500/20 to-purple-500/20 rounded-2xl p-12 border border-indigo-500/30">
             <h2 className="text-3xl font-bold text-white mb-4">Ready to Start Your Project?</h2>
             <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-8">
               Let's discuss how we can bring your ideas to life. I'm excited to hear about your project!
@@ -447,7 +445,7 @@ const ContactPage = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="mailto:saurabh@example.com"
-                className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-yellow-500 to-amber-500 text-black font-bold rounded-xl transition-all hover:scale-105 hover:shadow-lg hover:shadow-yellow-500/30"
+                className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-indigo-500 to-purple-700 text-white font-bold rounded-xl transition-all hover:scale-105 hover:shadow-lg hover:shadow-indigo-500/30"
               >
                 <Mail className="mr-2" size={20} />
                 Email Me Directly
@@ -455,7 +453,7 @@ const ContactPage = () => {
               
               <a
                 href="#projects"
-                className="inline-flex items-center px-8 py-4 bg-slate-800/60 backdrop-blur-sm border border-slate-700/50 rounded-xl transition-all hover:bg-slate-700/60 hover:border-yellow-500/50 hover:scale-105"
+                className="inline-flex items-center px-8 py-4 bg-slate-800/60 backdrop-blur-sm border border-slate-700/50 rounded-xl transition-all hover:bg-slate-700/60 hover:border-indigo-500/50 hover:scale-105"
               >
                 <Briefcase className="mr-2" size={20} />
                 View My Work

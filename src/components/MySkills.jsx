@@ -9,7 +9,7 @@ const MySkills = () => {
   // Enhanced skill data with proficiency levels
   const skillCategories = [
     {
-      icon: <Code className="text-yellow-400" size={24} />,
+      icon: <Code className="text-indigo-400" size={24} />,
       title: "Programming Languages",
       description: "Proficient in multiple languages for web development, backend APIs, and data structures",
       skills: [
@@ -22,7 +22,7 @@ const MySkills = () => {
       ]
     },
     {
-      icon: <Globe className="text-yellow-400" size={24} />,
+      icon: <Globe className="text-indigo-400" size={24} />,
       title: "Web Development",
       description: "Full-stack development expertise with modern frameworks and responsive design",
       skills: [
@@ -34,7 +34,7 @@ const MySkills = () => {
       ]
     },
     {
-      icon: <Server className="text-yellow-400" size={24} />,
+      icon: <Server className="text-indigo-400" size={24} />,
       title: "DevOps & Deployment",
       description: "Containerization, server management, and production deployment solutions",
       skills: [
@@ -47,7 +47,7 @@ const MySkills = () => {
       ]
     },
     {
-      icon: <Brain className="text-yellow-400" size={24} />,
+      icon: <Brain className="text-indigo-400" size={24} />,
       title: "Computer Science Fundamentals",
       description: "Strong foundation in core CS principles and problem-solving",
       skills: [
@@ -58,7 +58,7 @@ const MySkills = () => {
       ]
     },
     {
-      icon: <Plug className="text-yellow-400" size={24} />,
+      icon: <Plug className="text-indigo-400" size={24} />,
       title: "APIs & Tools",
       description: "API development and integration with specialized tools",
       skills: [
@@ -69,7 +69,7 @@ const MySkills = () => {
       ]
     },
     {
-      icon: <Cloud className="text-yellow-400" size={24} />,
+      icon: <Cloud className="text-indigo-400" size={24} />,
       title: "Cloud & Hosting",
       description: "Complete cloud infrastructure management and deployment",
       skills: [
@@ -80,27 +80,27 @@ const MySkills = () => {
       ]
     }
   ];
-
+  
   // Tech Journey data with enhanced details
   const techJourney = [
     {
       year: "2020",
       title: "Foundations of Web Development",
       subtitle: "Laying the bricks for a strong tech career",
-      icon: <Calendar className="text-yellow-400" size={20} />,
+      icon: <Calendar className="text-indigo-400" size={20} />,
       achievements: [
         "Learned HTML, CSS, and JavaScript for creating responsive web pages",
         "Built small static websites and clones to practice design & layout",
         "Gained understanding of web standards, DOM manipulation, and semantic HTML"
       ],
-      color: "from-blue-500 to-cyan-400",
+      color: "from-blue-500 to-indigo-400",
       keySkills: ["HTML", "CSS", "JavaScript", "Web Design"]
     },
     {
       year: "2021",
       title: "Entry into Python & Machine Learning",
       subtitle: "Data meets logic",
-      icon: <Brain className="text-yellow-400" size={20} />,
+      icon: <Brain className="text-indigo-400" size={20} />,
       achievements: [
         "Started with Python, then explored NumPy, Pandas, Matplotlib, etc.",
         "Worked on basic machine learning models using Scikit-Learn",
@@ -114,7 +114,7 @@ const MySkills = () => {
       year: "2022",
       title: "Real Projects with Django & Fullstack Exposure",
       subtitle: "From scripts to scalable systems",
-      icon: <Server className="text-yellow-400" size={20} />,
+      icon: <Server className="text-indigo-400" size={20} />,
       achievements: [
         "Mastered Django for backend development",
         "Connected Django with HTML/CSS/JS to make full-fledged web apps",
@@ -129,7 +129,7 @@ const MySkills = () => {
       year: "2023",
       title: "Production, DevOps & Modern Stack",
       subtitle: "Building like a real engineer",
-      icon: <Zap className="text-yellow-400" size={20} />,
+      icon: <Zap className="text-indigo-400" size={20} />,
       achievements: [
         "Worked with modern frontend: React.js",
         "Explored and implemented FastAPI and Express.js for REST APIs",
@@ -137,35 +137,35 @@ const MySkills = () => {
         "Production deployment on VPS (DigitalOcean) using Docker, Nginx, and Gunicorn",
         "Connected custom domains and handled SSL, logs, firewall, and backups"
       ],
-      color: "from-amber-500 to-yellow-400",
+      color: "from-purple-500 to-pink-400",
       keySkills: ["React", "FastAPI", "DevOps", "Docker", "Production"]
     }
   ];
-
+  
   // Technical Skills Summary
   const skillsSummary = [
     {
-      icon: <Code className="text-yellow-400" size={20} />,
+      icon: <Code className="text-indigo-400" size={20} />,
       title: "Languages & Tools",
       skills: "Python | C++ | HTML | CSS | JavaScript | SQL | Git"
     },
     {
-      icon: <Globe className="text-yellow-400" size={20} />,
+      icon: <Globe className="text-indigo-400" size={20} />,
       title: "Web & API Development",
       skills: "Django | FastAPI | Express.js | React.js | Tailwind CSS | Django REST Framework"
     },
     {
-      icon: <Brain className="text-yellow-400" size={20} />,
+      icon: <Brain className="text-indigo-400" size={20} />,
       title: "Machine Learning",
       skills: "NumPy | Pandas | Scikit-Learn | Matplotlib | Model Integration in Web"
     },
     {
-      icon: <Cloud className="text-yellow-400" size={20} />,
+      icon: <Cloud className="text-indigo-400" size={20} />,
       title: "DevOps & Deployment",
       skills: "Docker | Linux VPS | Nginx | Gunicorn | GitHub Actions | CI/CD | PostgreSQL (Cloud) | Domain + SSL Setup"
     }
   ];
-
+  
   // Project data with unique IDs
   const projects = [
     {
@@ -174,7 +174,7 @@ const MySkills = () => {
       tech: "Django + WebSockets + Redis",
       description: "Real-time location-based messaging platform",
       link: "#",
-      icon: <MessageSquare className="text-yellow-400" size={24} />
+      icon: <MessageSquare className="text-indigo-400" size={24} />
     },
     {
       id: "djangobeat-blog",
@@ -182,7 +182,7 @@ const MySkills = () => {
       tech: "Django + React + PostgreSQL",
       description: "Tech blog with modern UI/UX",
       link: "#",
-      icon: <Folder className="text-yellow-400" size={24} />
+      icon: <Folder className="text-indigo-400" size={24} />
     },
     {
       id: "portfolio-website",
@@ -190,14 +190,14 @@ const MySkills = () => {
       tech: "React + Tailwind CSS",
       description: "Animated, responsive portfolio",
       link: "#",
-      icon: <Globe className="text-yellow-400" size={24} />
+      icon: <Globe className="text-indigo-400" size={24} />
     }
   ];
-
+  
   // State for filtering
   const [activeFilter, setActiveFilter] = useState("All");
   const [searchTerm, setSearchTerm] = useState("");
-
+  
   // Filter categories based on active filter and search term
   const filteredCategories = skillCategories.filter(category => {
     const matchesFilter = activeFilter === "All" || category.title === activeFilter;
@@ -206,14 +206,14 @@ const MySkills = () => {
     );
     return matchesFilter && matchesSearch;
   });
-
+  
   // Function to handle resume download
   const handleDownloadResume = () => {
     alert("Resume download started! In a real app, this would trigger a PDF download.");
     // In a real app, you would use:
     // window.open('/path/to/resume.pdf', '_blank');
   };
-
+  
   // Function to get progress width based on proficiency level
   const getProgressWidth = (level) => {
     switch(level) {
@@ -224,11 +224,11 @@ const MySkills = () => {
       default: return "50%";
     }
   };
-
+  
   return (
     <section id="skills" className="py-24 px-6 md:px-20 bg-slate-900">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-5xl md:text-6xl font-extrabold text-center mb-16 bg-gradient-to-r from-yellow-400 to-amber-400 bg-clip-text text-transparent">
+        <h2 className="text-5xl md:text-6xl font-extrabold text-center mb-16 bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
           Technical Expertise
         </h2>
         
@@ -239,7 +239,7 @@ const MySkills = () => {
               onClick={() => setActiveFilter("All")}
               className={`px-4 py-2 rounded-full text-sm font-medium transition-all
                 ${activeFilter === "All" 
-                  ? 'bg-gradient-to-r from-yellow-500 to-amber-500 text-black' 
+                  ? 'bg-gradient-to-r from-indigo-500 to-purple-700 text-white' 
                   : 'bg-slate-800 text-slate-300 hover:bg-slate-700'}`}
             >
               All Skills
@@ -250,7 +250,7 @@ const MySkills = () => {
                 onClick={() => setActiveFilter(category.title)}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all
                   ${activeFilter === category.title 
-                    ? 'bg-gradient-to-r from-yellow-500 to-amber-500 text-black' 
+                    ? 'bg-gradient-to-r from-indigo-500 to-purple-700 text-white' 
                     : 'bg-slate-800 text-slate-300 hover:bg-slate-700'}`}
               >
                 {category.title}
@@ -264,7 +264,7 @@ const MySkills = () => {
               placeholder="Search skills..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full md:w-64 px-4 py-2 pl-10 bg-slate-800 text-slate-300 rounded-full border border-slate-700 focus:border-yellow-500 focus:outline-none"
+              className="w-full md:w-64 px-4 py-2 pl-10 bg-slate-800 text-slate-300 rounded-full border border-slate-700 focus:border-indigo-500 focus:outline-none"
             />
             <Filter className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
           </div>
@@ -275,10 +275,10 @@ const MySkills = () => {
           {filteredCategories.map((category, index) => (
             <div 
               key={`category-${index}`}
-              className="bg-slate-800 rounded-2xl p-6 border border-slate-700 hover:border-yellow-500/50 transition-all duration-300 group hover:shadow-lg hover:shadow-yellow-500/10 transform hover:-translate-y-1"
+              className="bg-slate-800 rounded-2xl p-6 border border-slate-700 hover:border-indigo-500/50 transition-all duration-300 group hover:shadow-lg hover:shadow-indigo-500/10 transform hover:-translate-y-1"
             >
               <div className="flex items-center mb-4">
-                <div className="p-2 bg-slate-700 rounded-lg mr-4 group-hover:bg-yellow-500/20 transition-colors">
+                <div className="p-2 bg-slate-700 rounded-lg mr-4 group-hover:bg-indigo-500/20 transition-colors">
                   {category.icon}
                 </div>
                 <h3 className="text-xl font-bold text-white">{category.title}</h3>
@@ -291,13 +291,13 @@ const MySkills = () => {
                   <div key={`skill-${index}-${skillIndex}`}>
                     <div className="flex justify-between text-sm mb-1">
                       <span className="text-slate-300">{skill.name}</span>
-                      <span className="text-yellow-400 font-medium text-xs capitalize">
+                      <span className="text-indigo-400 font-medium text-xs capitalize">
                         {skill.level}
                       </span>
                     </div>
                     <div className="h-2 bg-slate-700 rounded-full overflow-hidden">
                       <div 
-                        className="h-full bg-gradient-to-r from-yellow-400 to-amber-500 rounded-full" 
+                        className="h-full bg-gradient-to-r from-indigo-400 to-purple-500 rounded-full" 
                         style={{ width: getProgressWidth(skill.level) }}
                       ></div>
                     </div>
@@ -311,14 +311,14 @@ const MySkills = () => {
         {/* Tech Journey Section - Vertical Timeline with 3D Effects */}
         <div className="mb-20">
           <div className="flex items-center justify-center mb-10">
-            <TrendingUp className="mr-3 text-yellow-400" size={32} />
+            <TrendingUp className="mr-3 text-indigo-400" size={32} />
             <h3 className="text-3xl font-bold text-white">🚀 My Tech Journey: Year-wise Growth</h3>
           </div>
           
           {/* Vertical Timeline */}
           <div className="relative">
             {/* Timeline line with neon effect */}
-            <div className="absolute left-4 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 via-green-500 via-purple-500 to-amber-500 shadow-lg shadow-blue-500/50 animate-pulse-slow"></div>
+            <div className="absolute left-4 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 via-green-500 via-purple-500 to-pink-500 shadow-lg shadow-indigo-500/50 animate-pulse-slow"></div>
             
             <div className="space-y-12">
               {techJourney.map((journey, index) => (
@@ -327,13 +327,13 @@ const MySkills = () => {
                   className="relative pl-16 group"
                 >
                   {/* Timeline dot with neon glow */}
-                  <div className={`absolute left-0 w-10 h-10 rounded-full bg-gradient-to-r ${journey.color} border-4 border-slate-900 z-10 flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300 shadow-lg ${journey.color.includes('blue') ? 'shadow-blue-500/50' : journey.color.includes('green') ? 'shadow-green-500/50' : journey.color.includes('purple') ? 'shadow-purple-500/50' : 'shadow-amber-500/50'}`}>
+                  <div className={`absolute left-0 w-10 h-10 rounded-full bg-gradient-to-r ${journey.color} border-4 border-slate-900 z-10 flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300 shadow-lg ${journey.color.includes('blue') ? 'shadow-blue-500/50' : journey.color.includes('green') ? 'shadow-green-500/50' : journey.color.includes('purple') ? 'shadow-purple-500/50' : 'shadow-pink-500/50'}`}>
                     <span className="text-black font-bold text-sm">{journey.year}</span>
                   </div>
                   
                   {/* Journey Card with 3D effect */}
                   <div 
-                    className={`bg-slate-800 rounded-2xl overflow-hidden border border-slate-700 hover:border-yellow-500/50 transition-all duration-300 transform hover:-translate-y-2 group-hover:shadow-xl ${journey.color.includes('blue') ? 'group-hover:shadow-blue-500/20' : journey.color.includes('green') ? 'group-hover:shadow-green-500/20' : journey.color.includes('purple') ? 'group-hover:shadow-purple-500/20' : 'group-hover:shadow-amber-500/20'}`}
+                    className={`bg-slate-800 rounded-2xl overflow-hidden border border-slate-700 hover:border-indigo-500/50 transition-all duration-300 transform hover:-translate-y-2 group-hover:shadow-xl ${journey.color.includes('blue') ? 'group-hover:shadow-blue-500/20' : journey.color.includes('green') ? 'group-hover:shadow-green-500/20' : journey.color.includes('purple') ? 'group-hover:shadow-purple-500/20' : 'group-hover:shadow-pink-500/20'}`}
                     style={{
                       transformStyle: 'preserve-3d',
                       perspective: '1000px'
@@ -363,7 +363,7 @@ const MySkills = () => {
                           {journey.keySkills.map((skill, skillIndex) => (
                             <span 
                               key={`skill-${index}-${skillIndex}`}
-                              className="px-3 py-1 bg-slate-700/50 text-yellow-300 rounded-lg text-xs font-medium border border-yellow-500/30 shadow-sm shadow-yellow-500/20"
+                              className="px-3 py-1 bg-slate-700/50 text-indigo-300 rounded-lg text-xs font-medium border border-indigo-500/30 shadow-sm shadow-indigo-500/20"
                             >
                               {skill}
                             </span>
@@ -377,8 +377,8 @@ const MySkills = () => {
                         <ul className="space-y-2">
                           {journey.achievements.map((achievement, achIndex) => (
                             <li key={`achievement-${index}-${achIndex}`} className="flex items-start">
-                              <div className="bg-yellow-500/20 p-1 rounded-full mt-1 mr-3 animate-pulse-slow">
-                                <CheckCircle className="text-yellow-400" size={16} />
+                              <div className="bg-indigo-500/20 p-1 rounded-full mt-1 mr-3 animate-pulse-slow">
+                                <CheckCircle className="text-indigo-400" size={16} />
                               </div>
                               <span className="text-slate-300">{achievement}</span>
                             </li>
@@ -396,14 +396,14 @@ const MySkills = () => {
         {/* Technical Skills Summary */}
         <div className="mb-20">
           <h3 className="text-3xl font-bold text-white mb-8 text-center flex items-center justify-center">
-            <Brain className="mr-3 text-yellow-400" size={28} /> My Technical Skills Summary
+            <Brain className="mr-3 text-indigo-400" size={28} /> My Technical Skills Summary
           </h3>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {skillsSummary.map((summary, index) => (
               <div 
                 key={`summary-${index}`}
-                className="bg-slate-800 rounded-2xl p-6 border border-slate-700 hover:border-yellow-500/50 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-yellow-500/10"
+                className="bg-slate-800 rounded-2xl p-6 border border-slate-700 hover:border-indigo-500/50 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-indigo-500/10"
               >
                 <div className="flex items-center mb-4">
                   <div className="p-2 bg-slate-700 rounded-lg mr-4">
@@ -412,7 +412,7 @@ const MySkills = () => {
                   <h4 className="text-xl font-bold text-white">{summary.title}</h4>
                 </div>
                 
-                <div className="text-yellow-300 font-medium">
+                <div className="text-indigo-300 font-medium">
                   {summary.skills}
                 </div>
               </div>
@@ -424,7 +424,7 @@ const MySkills = () => {
         <div className="text-center">
           <button 
             onClick={handleDownloadResume}
-            className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-yellow-500 to-amber-500 text-black font-bold rounded-full shadow-lg hover:shadow-yellow-500/30 transition-all hover:scale-105 transform hover:translate-y-1"
+            className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-indigo-500 to-purple-700 text-white font-bold rounded-full shadow-lg hover:shadow-indigo-500/30 transition-all hover:scale-105 transform hover:translate-y-1"
           >
             <Download size={20} />
             <span>Download My Resume</span>
