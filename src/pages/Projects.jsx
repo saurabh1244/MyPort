@@ -5,6 +5,7 @@ import {
   Star, Code, Globe, Zap, ArrowRight, Briefcase
 } from 'lucide-react';
 import projectData from './projectData';
+import ParticleBackground from '../components/Hero/ParticleBackground';
 
 const Projects = () => {
   const [projects, setProjects] = useState([]);
@@ -97,6 +98,8 @@ const Projects = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-gray-900 to-slate-800 text-white">
       {/* Hero Section */}
+      <ParticleBackground />
+
       <section className="relative overflow-hidden pt-32 pb-20 px-6">
         {/* Animated background elements */}
         <div className="absolute inset-0 overflow-hidden">

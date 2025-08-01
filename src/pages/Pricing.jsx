@@ -4,6 +4,7 @@ import {
   Zap, Code, Palette, Database, Cloud,
   Smartphone, MessageSquare, Shield, Award
 } from 'lucide-react';
+import ParticleBackground from '../components/Hero/ParticleBackground';
 
 const Pricing = () => {
   const [activeTab, setActiveTab] = useState('web');
@@ -252,6 +253,9 @@ const Pricing = () => {
   
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-gray-900 to-slate-800 text-white">
+
+      <ParticleBackground />
+      
       {/* Hero Section */}
       <section className="relative overflow-hidden pt-32 pb-20 px-6">
         {/* Animated background elements */}

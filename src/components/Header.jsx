@@ -38,7 +38,9 @@ const Header = () => {
     { to: '/about',  label: 'About'  },
     { to: '/projects', label: 'Projects' },
     { to: '/contact', label: 'Contact' },
-    { to: '/pricing', label: 'Pricing' }
+    { to: '/pricing', label: 'Pricing' },
+    { to: '/blog', label: 'Blogs' }
+
   ];
 
   const socials = [
