@@ -59,7 +59,7 @@ const DynamicHero = ({ scrollTo }) => {
         {/* Name container with protective overlay */}
         <div className="relative inline-block">
           <GlitchText 
-            text="Saurabh Chandra" 
+            text="Xiorabh Chandra" 
             className="text-6xl md:text-8xl font-bold bg-gradient-to-r from-indigo-400 via-purple-400 to-indigo-500 bg-clip-text text-transparent"
           />
           {/* Text protection overlay */}
