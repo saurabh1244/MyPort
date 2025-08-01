@@ -1,6 +1,7 @@
 // Contact.jsx
 import { useState } from 'react';
 import { Send, User, Mail, MessageSquare } from 'lucide-react';
+import ParticleBackground from '../Hero/ParticleBackground';
 
 const Contact = () => {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
@@ -22,6 +23,10 @@ const Contact = () => {
 
   return (
     <section id="contact" className="py-24 px-6 md:px-20 bg-slate-900">
+
+      <ParticleBackground />
+
+
       <div className="max-w-3xl mx-auto">
         <h2 className="text-5xl md:text-6xl font-extrabold text-center mb-12 bg-gradient-to-r from-yellow-400 to-amber-400 bg-clip-text text-transparent">
           Get In Touch

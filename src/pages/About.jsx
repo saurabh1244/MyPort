@@ -6,6 +6,7 @@ import {
   ChevronRight, ArrowRight, Play, CheckCircle, Calendar,
   Server, Palette, Database, Cloud, Clipboard
 } from 'lucide-react';
+import ParticleBackground from '../components/Hero/ParticleBackground';
 
 const About = () => {
   const [activeTab, setActiveTab] = useState('journey');
@@ -126,6 +127,8 @@ const About = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-gray-900 to-slate-800 text-white">
       {/* Hero Section */}
+            <ParticleBackground />
+
       <section className="relative overflow-hidden pt-32 pb-20 px-6">
         {/* Animated background elements */}
         <div className="absolute inset-0 overflow-hidden">

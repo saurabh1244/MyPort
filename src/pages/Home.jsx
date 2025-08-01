@@ -7,7 +7,8 @@ import TechFilter from '../components/Skills/TechFilter';
 import ExperienceTimeline from '../components/Skills/ExperienceTimeline';
 import AnimatedCard from '../components/UI/AnimatedCard';
 import MySkills from '../components/MySkills';
-import { Github, ExternalLink } from 'lucide-react';
+import { Github, ExternalLink, Calendar, User, Clock } from 'lucide-react';
+import { blogData } from './BlogData';
 
 const Home = () => {
   const [isVisible, setIsVisible] = useState({});
@@ -121,6 +122,13 @@ const Home = () => {
                   </span>
                 ))}
               </div>
+             
+             <div>
+                 <Link to="/about">
+        <button className="px-4 py-2 bg-blue-500 text-white rounded">Read More</button>
+      </Link>
+                        
+             </div>
             </div>
           </div>
         </div>
@@ -214,15 +222,96 @@ const Home = () => {
         </div>
       </section>
       
+      {/* Blog Section */}
+      <section id="blog" data-animate className={`py-24 px-6 transition-all duration-1000 ${isVisible.blog ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'}`}>
+        <div className="max-w-6xl mx-auto">
+          <div className="flex justify-between items-center mb-12">
+            <h2 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
+              Latest Blog Posts
+            </h2>
+            <Link 
+              to="/blog" 
+              className="px-6 py-3 bg-gradient-to-r from-indigo-500 to-purple-700 text-white font-medium rounded-lg transition-all hover:scale-105 hover:shadow-lg hover:shadow-indigo-500/30"
+            >
+              View All
+            </Link>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {blogData.slice(0, 3).map((blog) => (
+              <AnimatedCard key={blog.id} style={{ animationDelay: `${blog.id * 150}ms` }} className="animate-slide-up">
+                {/* Image with overlay effect */}
+                <div className="relative h-48 overflow-hidden">
+                  <img 
+                    src={blog.image} 
+                    alt={blog.title} 
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  {/* Category badge */}
+                  <div className="absolute top-4 left-4 px-3 py-1 bg-indigo-500/80 text-white text-xs font-bold rounded-full">
+                    {blog.category}
+                  </div>
+                </div>
+                
+                {/* Content */}
+                <div className="p-6">
+                  <div className="flex items-center text-gray-400 text-xs mb-3">
+                    <Calendar className="mr-1" size={12} />
+                    {blog.date}
+                    <span className="mx-2">•</span>
+                    <Clock className="mr-1" size={12} />
+                    {blog.readTime}
+                  </div>
+                  
+                  <Link to={`/blog/${blog.id}`}>
+                    <h3 className="text-lg font-bold mb-3 text-white group-hover:text-indigo-300 transition-colors duration-300 flex items-center cursor-pointer">
+                      {blog.title}
+                      <span className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-indigo-400" viewBox="0 0 20 20" fill="currentColor">
+                          <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                        </svg>
+                      </span>
+                    </h3>
+                  </Link>
+                  
+                  <p className="text-gray-400 mb-4 text-sm group-hover:text-gray-300 transition-colors duration-300 line-clamp-3">
+                    {blog.intro}
+                  </p>
+                  
+                  {/* Author info */}
+                  <div className="flex items-center">
+                    <div className="w-6 h-6 rounded-full bg-gradient-to-r from-indigo-500 to-purple-700 flex items-center justify-center text-white text-xs font-bold mr-2">
+                      {blog.author.charAt(0)}
+                    </div>
+                    <span className="text-xs text-gray-400">{blog.author}</span>
+                  </div>
+                </div>
+                
+                {/* Decorative corner accent */}
+                <div className="absolute top-0 right-0 w-16 h-16 overflow-hidden">
+                  <div className="absolute top-0 right-0 w-8 h-8 bg-indigo-500/30 transform rotate-45 translate-x-4 -translate-y-4 group-hover:bg-indigo-400/50 transition-colors duration-300"></div>
+                </div>
+              </AnimatedCard>
+            ))}
+          </div>
+        </div>
+      </section>
+      
       <style jsx global>{`
         @keyframes slide-up {
           from { opacity: 0; transform: translateY(30px); }
           to { opacity: 1; transform: translateY(0); }
         }
         .animate-slide-up { animation: slide-up 0.7s ease-out forwards; }
+        .line-clamp-3 {
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+        }
       `}</style>
     </div>
   );
 };
-
 export default Home;
