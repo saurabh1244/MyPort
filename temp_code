@@ -1,3 +1,9 @@
+deployment code 
+
+netlify deploy --prod --dir=dist
+
+
+
 footer for light theme -
 
 const Footer = () => {
