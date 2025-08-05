@@ -84,7 +84,7 @@ const MySkills = () => {
   // Tech Journey data with enhanced details
   const techJourney = [
     {
-      year: "2020",
+      year: "2021",
       title: "Foundations of Web Development",
       subtitle: "Laying the bricks for a strong tech career",
       icon: <Calendar className="text-indigo-400" size={20} />,
@@ -97,7 +97,7 @@ const MySkills = () => {
       keySkills: ["HTML", "CSS", "JavaScript", "Web Design"]
     },
     {
-      year: "2021",
+      year: "2022",
       title: "Entry into Python & Machine Learning",
       subtitle: "Data meets logic",
       icon: <Brain className="text-indigo-400" size={20} />,
@@ -111,7 +111,7 @@ const MySkills = () => {
       keySkills: ["Python", "NumPy", "Pandas", "Scikit-Learn", "ML Models"]
     },
     {
-      year: "2022",
+      year: "2023",
       title: "Real Projects with Django & Fullstack Exposure",
       subtitle: "From scripts to scalable systems",
       icon: <Server className="text-indigo-400" size={20} />,
@@ -126,7 +126,7 @@ const MySkills = () => {
       keySkills: ["Django", "Fullstack", "APIs", "ML Integration", "Deployment"]
     },
     {
-      year: "2023",
+      year: "2024",
       title: "Production, DevOps & Modern Stack",
       subtitle: "Building like a real engineer",
       icon: <Zap className="text-indigo-400" size={20} />,
@@ -312,7 +312,7 @@ const MySkills = () => {
         <div className="mb-20">
           <div className="flex items-center justify-center mb-10">
             <TrendingUp className="mr-3 text-indigo-400" size={32} />
-            <h3 className="text-3xl font-bold text-white">🚀 My Tech Journey: Year-wise Growth</h3>
+            <h3 className="text-3xl font-bold text-white">My Tech Journey: Year-wise Growth</h3>
           </div>
           
           {/* Vertical Timeline */}

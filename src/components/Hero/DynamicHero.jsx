@@ -82,10 +82,10 @@ const DynamicHero = ({ scrollTo }) => {
         
         <div className="flex justify-center space-x-6 animate-fade-in-up animation-delay-700">
           {[
-            { Icon: Github, href: '#', color: 'hover:bg-gray-700' },
-            { Icon: Linkedin, href: '#', color: 'hover:bg-blue-600' },
-            { Icon: Twitter, href: '#', color: 'hover:bg-sky-500' },
-            { Icon: Mail, href: 'mailto:saurabh@example.com', color: 'hover:bg-indigo-600' }
+            { Icon: Github, href: 'https://github.com/saurabh1244', color: 'hover:bg-gray-700' },
+            { Icon: Linkedin, href: 'https://www.linkedin.com/in/saurabh-chandra-454600268/', color: 'hover:bg-blue-600' },
+            { Icon: Twitter, href: 'https://x.com/xiorabh', color: 'hover:bg-sky-500' },
+            { Icon: Mail, href: 'https://mail.google.com/mail/?view=cm&to=saurabhchandra1244@gmail.com', color: 'hover:bg-indigo-600' }
           ].map(({ Icon, href, color }) => (
             <a
               key={href}

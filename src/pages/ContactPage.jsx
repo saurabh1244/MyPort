@@ -6,6 +6,7 @@ import {
   ArrowRight, Star, Zap, Briefcase, Code
 } from 'lucide-react';
 import ParticleBackground from '../components/Hero/ParticleBackground';
+import { Link } from 'react-router-dom';
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -17,35 +18,35 @@ const ContactPage = () => {
   
   const [formStatus, setFormStatus] = useState('idle'); // idle, loading, success, error
   const [errors, setErrors] = useState({});
+  const [detailedError, setDetailedError] = useState(''); // For detailed error messages
   
   // Contact information
   const contactInfo = [
     {
       icon: <Mail className="text-indigo-400" size={24} />,
       title: "Email",
-      value: "saurabh@example.com",
+      value: "saurabhchandra1244@gmail.com",
       description: "I'll respond within 24 hours"
     },
     {
       icon: <Phone className="text-indigo-400" size={24} />,
       title: "Phone",
-      value: "+91 98765 43210",
+      value: "+91 9770374611",
       description: "Mon-Fri 9AM-6PM IST"
     },
     {
       icon: <MapPin className="text-indigo-400" size={24} />,
       title: "Location",
-      value: "Mumbai, India",
+      value: "Dabhara,495688,dist-Sakti,CG,India",
       description: "Available for remote work worldwide"
     }
   ];
   
   // Social links
   const socialLinks = [
-    { icon: <Github size={20} />, url: '#', label: 'GitHub' },
-    { icon: <Linkedin size={20} />, url: '#', label: 'LinkedIn' },
-    { icon: <Twitter size={20} />, url: '#', label: 'Twitter' },
-    { icon: <ExternalLink size={20} />, url: '#', label: 'Website' }
+    { icon: <Github size={20} />, url: 'https://github.com/saurabh1244', label: 'GitHub' },
+    { icon: <Linkedin size={20} />, url: 'https://www.linkedin.com/in/saurabh-chandra-454600268/', label: 'LinkedIn' },
+    { icon: <Twitter size={20} />, url: 'https://x.com/xiorabh', label: 'Twitter' },
   ];
   
   // Services
@@ -114,27 +115,87 @@ const ContactPage = () => {
     return Object.keys(newErrors).length === 0;
   };
   
+  // Enhanced handleSubmit with detailed error handling and logging
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setDetailedError(''); // Reset detailed error
+    
+    // Log the start of submission
+    console.log('=== FORM SUBMISSION STARTED ===');
+    console.log('Form data:', formData);
     
     if (!validateForm()) {
+      console.log('Form validation failed:', errors);
       return;
     }
     
     setFormStatus('loading');
     
-    // Simulate API call
-    setTimeout(() => {
-      // Simulate random success/failure for demo
-      const isSuccess = Math.random() > 0.2; // 80% success rate
+    try {
+      // Create form data
+      const form = e.target;
+      const netlifyFormData = new FormData(form);
       
-      if (isSuccess) {
+      // Log form data being sent
+      console.log('FormData entries:');
+      for (let pair of netlifyFormData.entries()) {
+        console.log(`${pair[0]}: ${pair[1]}`);
+      }
+      
+      // Check honeypot field
+      if (netlifyFormData.get('bot-field')) {
+        const errorMsg = 'Bot detected! Form submission blocked.';
+        console.error(errorMsg);
+        setDetailedError(errorMsg);
+        setFormStatus('error');
+        return;
+      }
+      
+      // Encode form data for Netlify
+      const encodedData = new URLSearchParams(netlifyFormData).toString();
+      console.log('Encoded form data:', encodedData);
+      
+      // Submit to Netlify
+      console.log('Sending request to Netlify...');
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 
+          'Content-Type': 'application/x-www-form-urlencoded' 
+        },
+        body: encodedData,
+      });
+      
+      console.log('Response status:', response.status);
+      console.log('Response ok:', response.ok);
+      
+      if (response.ok) {
+        console.log('Form submitted successfully!');
         setFormStatus('success');
+        // Reset form
         setFormData({ name: '', email: '', subject: '', message: '' });
+        setErrors({});
       } else {
+        // Try to get more error details
+        const errorText = await response.text();
+        console.error('Form submission failed with status:', response.status);
+        console.error('Error response:', errorText);
+        
+        const errorMsg = `Form submission failed: ${response.status} ${response.statusText}`;
+        setDetailedError(errorMsg);
         setFormStatus('error');
       }
-    }, 2000);
+    } catch (error) {
+      console.error('Exception during form submission:', error);
+      console.error('Error name:', error.name);
+      console.error('Error message:', error.message);
+      console.error('Error stack:', error.stack);
+      
+      const errorMsg = `Exception: ${error.message}`;
+      setDetailedError(errorMsg);
+      setFormStatus('error');
+    }
+    
+    console.log('=== FORM SUBMISSION COMPLETED ===');
   };
   
   const handleChange = (e) => {
@@ -156,7 +217,6 @@ const ContactPage = () => {
   return (
     <div className="bg-gradient-to-br from-slate-900 via-gray-900 to-slate-800 text-white">
       {/* Hero Section */}
-
       <ParticleBackground />
       
       <section className="relative overflow-hidden pt-32 pb-20 px-6">
@@ -279,15 +339,41 @@ const ContactPage = () => {
               )}
               
               {formStatus === 'error' && (
-                <div className="mb-6 p-4 bg-red-500/20 border border-red-500/50 rounded-xl">
-                  <div className="flex items-center">
-                    <AlertCircle className="text-red-400 mr-3" size={20} />
-                    <p className="text-red-400 font-medium">Something went wrong. Please try again.</p>
+                <>
+                  <div className="mb-6 p-4 bg-red-500/20 border border-red-500/50 rounded-xl">
+                    <div className="flex items-center">
+                      <AlertCircle className="text-red-400 mr-3" size={20} />
+                      <p className="text-red-400 font-medium">Something went wrong. Please try again.</p>
+                    </div>
                   </div>
-                </div>
+                  
+                  {/* Detailed error information */}
+                  {detailedError && (
+                    <div className="mb-6 p-4 bg-red-900/30 border border-red-700/50 rounded-xl">
+                      <h4 className="text-red-400 font-medium mb-2">Error Details:</h4>
+                      <pre className="text-red-300 text-sm bg-black/20 p-2 rounded overflow-x-auto">
+                        {detailedError}
+                      </pre>
+                      <p className="text-red-400 text-sm mt-2">
+                        Check the browser console (F12) for more detailed logs.
+                      </p>
+                    </div>
+                  )}
+                </>
               )}
               
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form 
+                name="contact"
+                method="POST"
+                data-netlify="true"
+                netlify-honeypot="bot-field"
+                onSubmit={handleSubmit}
+                className="space-y-6"
+              >
+                {/* Netlify required hidden fields */}
+                <input type="hidden" name="form-name" value="contact" />
+                <input type="hidden" name="bot-field" />
+                
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-medium text-gray-300 mb-2">
@@ -448,20 +534,20 @@ const ContactPage = () => {
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="mailto:saurabh@example.com"
+                href="https://mail.google.com/mail/?view=cm&to=saurabhchandra1244@gmail.com"
                 className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-indigo-500 to-purple-700 text-white font-bold rounded-xl transition-all hover:scale-105 hover:shadow-lg hover:shadow-indigo-500/30"
               >
                 <Mail className="mr-2" size={20} />
                 Email Me Directly
               </a>
               
-              <a
-                href="#projects"
+              <Link
+                to="/projects"
                 className="inline-flex items-center px-8 py-4 bg-slate-800/60 backdrop-blur-sm border border-slate-700/50 rounded-xl transition-all hover:bg-slate-700/60 hover:border-indigo-500/50 hover:scale-105"
               >
                 <Briefcase className="mr-2" size={20} />
                 View My Work
-              </a>
+              </Link>
             </div>
           </div>
         </div>
