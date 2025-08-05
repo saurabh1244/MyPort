@@ -7,6 +7,7 @@ import {
   Server, Palette, Database, Cloud, Clipboard
 } from 'lucide-react';
 import ParticleBackground from '../components/Hero/ParticleBackground';
+import photo from '../assets/photo.jpeg';
 
 const About = () => {
   const [activeTab, setActiveTab] = useState('journey');
@@ -37,37 +38,30 @@ const About = () => {
     };
   }, []);
   
-  // Journey data
   const journeyData = [
     {
-      year: "2016",
+      year: "2021",
       title: "The Beginning",
       description: "Started my journey in web development with HTML and CSS",
       icon: <Code className="text-indigo-400" size={24} />
     },
     {
-      year: "2018",
+      year: "2022",
       title: "First Breakthrough",
       description: "Built my first full-stack application and fell in love with creating digital solutions",
       icon: <Lightbulb className="text-indigo-400" size={24} />
     },
     {
-      year: "2020",
+      year: "2024",
       title: "Professional Growth",
       description: "Joined Tech Innovations Inc. as a Full Stack Developer",
       icon: <Briefcase className="text-indigo-400" size={24} />
     },
     {
-      year: "2022",
+      year: "Current",
       title: "Senior Developer",
       description: "Promoted to Senior Developer, leading complex projects and mentoring juniors",
       icon: <Award className="text-indigo-400" size={24} />
-    },
-    {
-      year: "2024",
-      title: "Tech Visionary",
-      description: "Exploring cutting-edge technologies and architecting scalable solutions",
-      icon: <Zap className="text-indigo-400" size={24} />
     }
   ];
   
@@ -191,7 +185,7 @@ const About = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-700 rounded-2xl rotate-6 opacity-80 blur-sm"></div>
               <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-700 rounded-2xl -rotate-6 opacity-60 blur-sm"></div>
               <img 
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=600&fit=crop&crop=face" 
+                src={photo} 
                 alt="Saurabh Chandra" 
                 className="relative rounded-2xl border-2 border-indigo-400/30 shadow-2xl shadow-indigo-500/20 w-full h-auto"
               />
@@ -220,9 +214,9 @@ const About = () => {
             {/* Stats */}
             <div className="grid grid-cols-2 gap-6">
               {[
-                { number: "50+", label: "Projects Completed" },
-                { number: "5+", label: "Years Experience" },
-                { number: "20+", label: "Technologies" },
+                { number: "10+", label: "Projects Completed" },
+                { number: "2+", label: "Years Experience" },
+                { number: "10+", label: "Technologies" },
                 { number: "100%", label: "Client Satisfaction" }
               ].map((stat, index) => (
                 <div 

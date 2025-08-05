@@ -9,6 +9,7 @@ import AnimatedCard from '../components/UI/AnimatedCard';
 import MySkills from '../components/MySkills';
 import { Github, ExternalLink, Calendar, User, Clock } from 'lucide-react';
 import { blogData } from './BlogData';
+import photo from '../assets/photo.jpeg';
 
 const Home = () => {
   const [isVisible, setIsVisible] = useState({});
@@ -103,20 +104,19 @@ const Home = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-700 rounded-2xl rotate-6 opacity-80 group-hover:rotate-12 transition-transform duration-500" />
               <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-2xl -rotate-6 opacity-60 group-hover:-rotate-12 transition-transform duration-500" />
               <img
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face"
+                src={photo}
                 alt="Saurabh"
                 className="w-72 h-72 rounded-2xl object-cover absolute top-4 left-4 border-2 border-indigo-400/50 shadow-2xl z-10"
               />
             </div>
             <div className="space-y-6">
               <p className="text-lg text-gray-300 leading-relaxed">
-                I'm a passionate Full Stack Developer with 5+ years of experience building scalable web applications and cloud solutions.
-              </p>
+I'm Saurabh Chandra, a passionate Full Stack Developer with core expertise in Python, Django, and MySQL. I enjoy building scalable web applications, exploring modern backend technologies like FastAPI and Express.js, and working on system design, problem-solving, and research-driven projects through hackathons and collaborations.              </p>
               <p className="text-lg text-gray-300 leading-relaxed">
                 When I'm not coding, you'll find me exploring new tech, contributing to open-source, or sharing knowledge with the community.
               </p>
               <div className="flex flex-wrap gap-3">
-                {['Problem Solver', 'Team Player', 'Tech Enthusiast', 'Open Source Contributor'].map(t => (
+                {['Problem Solver', 'Team Player', 'Tech Enthusiast', 'Research Based Solution'].map(t => (
                   <span key={t} className="px-4 py-2 bg-slate-800/60 text-indigo-400 rounded-full text-sm border border-indigo-500/30 hover:bg-indigo-500/20 transition-all">
                     {t}
                   </span>

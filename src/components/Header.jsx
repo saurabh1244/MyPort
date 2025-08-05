@@ -38,7 +38,6 @@ const Header = () => {
     { to: '/about',  label: 'About'  },
     { to: '/projects', label: 'Projects' },
     { to: '/contact', label: 'Contact' },
-    { to: '/pricing', label: 'Pricing' },
     { to: '/blog', label: 'Blogs' }
 
   ];
@@ -98,15 +97,7 @@ const Header = () => {
             </Link>
           ))}
           {/* Hire Me Button */}
-          <a
-            href="#contact"
-            className="ml-4 px-4 py-2 bg-gradient-to-r from-indigo-400 to-purple-500
-                        text-white font-semibold rounded-lg shadow-md
-                        hover:from-indigo-500 hover:to-purple-600 transition-all duration-300
-                        hover:scale-105"
-          >
-            Hire Me
-          </a>
+        
         </nav>
         {/* Social icons desktop */}
         <div className="hidden md:flex items-center space-x-3">
@@ -166,14 +157,7 @@ const Header = () => {
               </a>
             ))}
           </div>
-          <a
-            href="#contact"
-            className="block w-full mt-4 px-4 py-2 bg-gradient-to-r from-indigo-400 to-purple-500
-                        text-white font-semibold rounded-lg shadow-md text-center
-                        hover:from-indigo-500 hover:to-purple-600 transition-all duration-300"
-          >
-            Hire Me
-          </a>
+         
         </div>
       )}
       <style jsx>{`
