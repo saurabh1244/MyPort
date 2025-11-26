@@ -1,0 +1,5 @@
+deployment code 
+
+netlify deploy --prod --dir=dist
+
+now correct this code layout error make it more attractive also solve also ,,mouse cursors move it attracts towrds mae this animation - 
