@@ -1,102 +1,217 @@
-// Contact.jsx
-import { useState } from 'react';
-import { Send, User, Mail, MessageSquare } from 'lucide-react';
-import ParticleBackground from '../Hero/ParticleBackground';
+import React, { useState } from 'react';
 
 const Contact = () => {
-  const [form, setForm] = useState({ name: '', email: '', message: '' });
-  const [loading, setLoading] = useState(false);
-  const [status, setStatus] = useState(null);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState('');
+  const [formStatus, setFormStatus] = useState('idle'); // idle, loading, success, error
+  const [errors, setErrors] = useState({});
 
-  const handleChange = e => setForm({ ...form, [e.target.name]: e.target.value });
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prevData => ({
+      ...prevData,
+      [name]: value
+    }));
+    
+    // Clear error when user starts typing
+    if (errors[name]) {
+      setErrors(prev => ({
+        ...prev,
+        [name]: ''
+      }));
+    }
+  };
 
-  const handleSubmit = async e => {
+  const validateForm = () => {
+    const newErrors = {};
+    
+    if (!formData.name.trim()) {
+      newErrors.name = 'Name is required';
+    }
+    
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email is required';
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = 'Email is invalid';
+    }
+    
+    if (!formData.message.trim()) {
+      newErrors.message = 'Message is required';
+    } else if (formData.message.trim().length < 10) {
+      newErrors.message = 'Message must be at least 10 characters';
+    }
+    
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
-    setStatus(null);
-    await new Promise(r => setTimeout(r, 1500));
-    console.log(form);
-    setStatus('success');
-    setForm({ name: '', email: '', message: '' });
-    setLoading(false);
+    
+    if (!validateForm()) {
+      return;
+    }
+    
+    setIsSubmitting(true);
+    setFormStatus('loading');
+    
+    try {
+      // Create form data
+      const form = e.target;
+      const netlifyFormData = new FormData(form);
+      
+      // Check honeypot field
+      if (netlifyFormData.get('bot-field')) {
+        setFormStatus('error');
+        setSubmitMessage('[ ERROR: BOT DETECTED ]');
+        return;
+      }
+      
+      // Encode form data for Netlify
+      const encodedData = new URLSearchParams(netlifyFormData).toString();
+      
+      // Submit to Netlify
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 
+          'Content-Type': 'application/x-www-form-urlencoded' 
+        },
+        body: encodedData,
+      });
+      
+      if (response.ok) {
+        setFormStatus('success');
+        setSubmitMessage('[ MESSAGE SENT! ]');
+        setFormData({
+          name: '',
+          email: '',
+          message: ''
+        });
+        setErrors({});
+        
+        // Reset message after 3 seconds
+        setTimeout(() => {
+          setSubmitMessage('[ SEND MESSAGE ]');
+          setIsSubmitting(false);
+          setFormStatus('idle');
+        }, 3000);
+      } else {
+        setFormStatus('error');
+        setSubmitMessage('[ ERROR: SUBMISSION FAILED ]');
+        
+        // Reset message after 3 seconds
+        setTimeout(() => {
+          setSubmitMessage('[ SEND MESSAGE ]');
+          setIsSubmitting(false);
+          setFormStatus('idle');
+        }, 3000);
+      }
+    } catch (error) {
+      setFormStatus('error');
+      setSubmitMessage('[ ERROR: SUBMISSION FAILED ]');
+      
+      // Reset message after 3 seconds
+      setTimeout(() => {
+        setSubmitMessage('[ SEND MESSAGE ]');
+        setIsSubmitting(false);
+        setFormStatus('idle');
+      }, 3000);
+    }
   };
 
   return (
-    <section id="contact" className="py-24 px-6 md:px-20 bg-slate-900">
-
-      <ParticleBackground />
-
-
-      <div className="max-w-3xl mx-auto">
-        <h2 className="text-5xl md:text-6xl font-extrabold text-center mb-12 bg-gradient-to-r from-yellow-400 to-amber-400 bg-clip-text text-transparent">
-          Get In Touch
-        </h2>
-
-        {/* ONLY the card is yellow-gold */}
-        <div className="bg-gradient-to-br from-yellow-500 via-amber-500 to-orange-500 rounded-3xl p-8 md:p-12 shadow-2xl">
-          <form onSubmit={handleSubmit} className="space-y-6">
-            {/* Name */}
-            <div className="relative">
-              <User className="absolute top-1/2 left-4 -translate-y-1/2 text-black/70" size={20} />
-              <input
+    <section id="contact" className="contact">
+      <div className="container">
+        <div className="contact-content">
+          <div className="contact-info">
+            <h2 className="section-title">
+              <span className="title-bracket">[</span>
+              GET IN TOUCH
+              <span className="title-bracket">]</span>
+            </h2>
+            <p className="contact-description">
+              Have a project in mind? Let's work together to create something amazing.
+            </p>
+            <div className="contact-details">
+              <div className="contact-item">
+                <span className="contact-label">&gt; EMAIL:</span>
+                <span className="contact-value">xiorabh@gmail.com</span>
+              </div>
+              <div className="contact-item">
+                <span className="contact-label">&gt; LOCATION:</span>
+                <span className="contact-value">Bhilai Chhattishgarh</span>
+              </div>
+              <div className="contact-item">
+                <span className="contact-label">&gt; AVAILABILITY:</span>
+                <span className="contact-value status-available">● At Night</span>
+              </div>
+            </div>
+          </div>
+          <form 
+            className="contact-form" 
+            name="contact"
+            method="POST"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+            onSubmit={handleSubmit}
+          >
+            {/* Netlify required hidden fields */}
+            <input type="hidden" name="form-name" value="contact" />
+            <input type="hidden" name="bot-field" />
+            
+            <div className="form-group">
+              <label htmlFor="name">&gt; NAME:</label>
+              <input 
+                type="text" 
+                id="name" 
                 name="name"
-                value={form.name}
+                value={formData.name}
                 onChange={handleChange}
-                placeholder="Your Name"
-                required
-                className="w-full pl-12 pr-4 py-3 bg-white/20 placeholder-black/60 text-black rounded-xl border border-transparent focus:border-black/40 outline-none"
+                placeholder="Enter your name..." 
+                required 
               />
-            </div>
-
-            {/* Email */}
-            <div className="relative">
-              <Mail className="absolute top-1/2 left-4 -translate-y-1/2 text-black/70" size={20} />
-              <input
-                type="email"
-                name="email"
-                value={form.email}
-                onChange={handleChange}
-                placeholder="Your Email"
-                required
-                className="w-full pl-12 pr-4 py-3 bg-white/20 placeholder-black/60 text-black rounded-xl border border-transparent focus:border-black/40 outline-none"
-              />
-            </div>
-
-            {/* Message */}
-            <div className="relative">
-              <MessageSquare className="absolute top-4 left-4 text-black/70" size={20} />
-              <textarea
-                name="message"
-                value={form.message}
-                onChange={handleChange}
-                placeholder="Your Message"
-                rows="5"
-                required
-                className="w-full pl-12 pr-4 py-4 bg-white/20 placeholder-black/60 text-black rounded-xl border border-transparent focus:border-black/40 outline-none resize-none"
-              />
-            </div>
-
-            {/* Send Button */}
-            <button
-              type="submit"
-              disabled={loading}
-              className="w-full flex items-center justify-center space-x-2 px-6 py-3 bg-black text-yellow-400 font-bold rounded-lg shadow-md hover:bg-neutral-800 transition-all disabled:opacity-50"
-            >
-              {loading ? (
-                <>
-                  <span className="h-5 w-5 border-2 border-t-2 border-yellow-400 border-t-transparent rounded-full animate-spin"></span>
-                  <span>Sending…</span>
-                </>
-              ) : (
-                <>
-                  <Send size={18} />
-                  <span>Send Message</span>
-                </>
+              {errors.name && (
+                <p className="error-message">{errors.name}</p>
               )}
+            </div>
+            <div className="form-group">
+              <label htmlFor="email">&gt; EMAIL:</label>
+              <input 
+                type="email" 
+                id="email" 
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="Enter your email..." 
+                required 
+              />
+              {errors.email && (
+                <p className="error-message">{errors.email}</p>
+              )}
+            </div>
+            <div className="form-group">
+              <label htmlFor="message">&gt; MESSAGE:</label>
+              <textarea 
+                id="message" 
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                rows="5" 
+                placeholder="Enter your message..." 
+                required 
+              />
+              {errors.message && (
+                <p className="error-message">{errors.message}</p>
+              )}
+            </div>
+            <button type="submit" className="submit-button" disabled={isSubmitting}>
+              {submitMessage || '[ SEND MESSAGE ]'}
             </button>
-
-            {status === 'success' && <p className="text-center text-green-800 font-semibold">Sent successfully!</p>}
-            {status === 'error' && <p className="text-center text-red-800 font-semibold">Failed, please retry.</p>}
           </form>
         </div>
       </div>

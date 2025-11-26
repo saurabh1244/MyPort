@@ -1,39 +1,26 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import Home from './pages/Home';
-import About from './pages/About';
-import Projects from './pages/Projects';
-import ProjectDetailPage from './pages/ProjectDetialPage';
-import ContactPage from './pages/ContactPage';
-import Blog from './pages/Blog';
-import BlogDetail from './pages/BlogDetail';
-
+import React from 'react';
+import Navbar from './components/Navbar.jsx';
+import Hero from './components/Hero.jsx';
+import Services from './components/Services.jsx';
+import About from './components/About.jsx';
+import Skills from './components/Skills.jsx';
+import Projects from './components/Projects.jsx';
+import Contact from './components/Contact.jsx';
+import Footer from './components/Footer.jsx';
+import './App.css';
 
 function App() {
   return (
-    <Router>
-      <div className="flex flex-col min-h-screen">
-        <Header />
-
-        <main className="flex-grow">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/projects" element={<Projects />} />
-           <Route path="/projects/:slug" element={<ProjectDetailPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="/blog" element={<Blog />} />
-           <Route path="/blog/:id" element={<BlogDetail />} />
-
-
-
-          </Routes>
-        </main>
-
-        <Footer />
-      </div>
-    </Router>
+    <div className="App">
+      <Navbar />
+      <Hero />
+      <Services />
+      <About />
+      <Skills />
+      <Projects />
+      <Contact />
+      <Footer />
+    </div>
   );
 }
 
