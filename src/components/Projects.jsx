@@ -82,7 +82,7 @@ const Projects = () => {
                   </div>
 
                   <a href="https://instasql.xiorabh.com" target="_blank" rel="noopener noreferrer" className="project-btn">
-                    LIVE DEMO →
+                    LIVE DEMO →   Its Backend Not Live Now
                   </a>
                   <a href="https://github.com/saurabh1244/instasql-docs" target="_blank" rel="noopener noreferrer" className="project-btn">
                     GITHUB →
@@ -126,7 +126,7 @@ const Projects = () => {
                     <span className="skill-tag">#AI Tools</span>
                   </div>
 
-                  <a href="https://code.appnity.co.in" target="_blank" rel="noopener noreferrer" className="project-btn">
+                  <a href="https://codestudio.appnity.cloud" target="_blank" rel="noopener noreferrer" className="project-btn">
                     LIVE DEMO →
                   </a>
                   <a href="https://github.com/saurabh1244/codegram-docs" target="_blank" rel="noopener noreferrer" className="project-btn">
